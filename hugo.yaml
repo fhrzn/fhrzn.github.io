@@ -1,7 +1,7 @@
 baseURL: '/'
 languageCode: en-us
 paginate: 10
-title: fhrzn
+title: Fahrizain's Site
 theme: "PaperMod"
 
 publishDir: "docs"
@@ -20,6 +20,8 @@ params:
     cover:
       hiddenInList: true # hide on list pages and home
 
+    meta:
+      favicon: true
 
 
     homeInfoParams:
