@@ -1,5 +1,6 @@
-baseURL: ''
+baseURL: '/'
 languageCode: en-us
+paginate: 10
 title: fhrzn
 theme: "PaperMod"
 
