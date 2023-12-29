@@ -2,45 +2,45 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/computervision/</loc>
+    <loc>https://fhrzn.github.io/tags/computervision/</loc>
     <lastmod>2022-10-14T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/tags/deeplearning/</loc>
+    <loc>https://fhrzn.github.io/tags/deeplearning/</loc>
     <lastmod>2022-10-14T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/posts/exploring-visual-transformers-vit-with-huggingface/</loc>
+    <loc>https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/</loc>
     <lastmod>2022-10-14T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>https://fhrzn.github.io/</loc>
     <lastmod>2022-10-14T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
+    <loc>https://fhrzn.github.io/posts/</loc>
     <lastmod>2022-10-14T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://fhrzn.github.io/tags/</loc>
     <lastmod>2022-10-14T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/tags/export/</loc>
+    <loc>https://fhrzn.github.io/tags/export/</loc>
     <lastmod>2022-08-07T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/tags/jupyter-notebook/</loc>
+    <loc>https://fhrzn.github.io/tags/jupyter-notebook/</loc>
     <lastmod>2022-08-07T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/posts/quick-export-your-jupyter-notebook-to-pdf/</loc>
+    <loc>https://fhrzn.github.io/posts/quick-export-your-jupyter-notebook-to-pdf/</loc>
     <lastmod>2022-08-07T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</loc>
+    <loc>https://fhrzn.github.io/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</loc>
     <lastmod>2021-11-01T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/tags/preprocessing/</loc>
+    <loc>https://fhrzn.github.io/tags/preprocessing/</loc>
     <lastmod>2021-11-01T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/tags/textprocessing/</loc>
+    <loc>https://fhrzn.github.io/tags/textprocessing/</loc>
     <lastmod>2021-11-01T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/tags/tfidf/</loc>
+    <loc>https://fhrzn.github.io/tags/tfidf/</loc>
     <lastmod>2021-11-01T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://fhrzn.github.io/categories/</loc>
   </url>
 </urlset>
