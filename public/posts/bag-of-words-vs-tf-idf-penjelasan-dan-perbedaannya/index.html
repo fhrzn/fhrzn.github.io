@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Bag of Words vs TF-IDF — Penjelasan dan Perbedaannya | fhrzn</title>
+<meta name="keywords" content="textprocessing, tfidf, preprocessing">
+<meta name="description" content="Bag of Words dan TF-IDF adalah 2 metode transformasi teks yang cukup populer. Mari kita bahas cara kerja serta perbedaannya!">
+<meta name="author" content="Affandy Fahrizain">
+<link rel="canonical" href="/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e087fd1dc76e73a35ae6d7028ddc1ba41e0131e7f9b3a6e2d019a208e6d6c4b5.css" integrity="sha256-4If9Hcduc6Na5tcCjdwbpB4BMef5s6bi0BmiCObWxLU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Bag of Words vs TF-IDF — Penjelasan dan Perbedaannya" />
+<meta property="og:description" content="Bag of Words dan TF-IDF adalah 2 metode transformasi teks yang cukup populer. Mari kita bahas cara kerja serta perbedaannya!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/" />
+<meta property="og:image" content="/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/https:/unsplash.com/photos/PyUXxFrYweY/download?ixid=M3wxMjA3fDB8MXxhbGx8OHx8fHx8fDJ8fDE3MDM3ODYyMzF8&amp;force=true&amp;w=640" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-01T23:53:18+07:00" />
+<meta property="article:modified_time" content="2021-11-01T23:53:18+07:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/https:/unsplash.com/photos/PyUXxFrYweY/download?ixid=M3wxMjA3fDB8MXxhbGx8OHx8fHx8fDJ8fDE3MDM3ODYyMzF8&amp;force=true&amp;w=640" />
+<meta name="twitter:title" content="Bag of Words vs TF-IDF — Penjelasan dan Perbedaannya"/>
+<meta name="twitter:description" content="Bag of Words dan TF-IDF adalah 2 metode transformasi teks yang cukup populer. Mari kita bahas cara kerja serta perbedaannya!"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Bag of Words vs TF-IDF — Penjelasan dan Perbedaannya",
+      "item": "/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bag of Words vs TF-IDF — Penjelasan dan Perbedaannya",
+  "name": "Bag of Words vs TF-IDF — Penjelasan dan Perbedaannya",
+  "description": "Bag of Words dan TF-IDF adalah 2 metode transformasi teks yang cukup populer. Mari kita bahas cara kerja serta perbedaannya!",
+  "keywords": [
+    "textprocessing", "tfidf", "preprocessing"
+  ],
+  "articleBody": " Ketika kita berhubungan dengan data teks seperti klasifikasi teks misalnya, kita tentunya harus melakukan transformasi data teks menjadi sekumpulan angka (vektor) terlebih dahulu sebelum melakukan modelling. Nah, 2 metode yang cukup populer diantaranya adalah Bag of Words dan TF-IDF. Mari kita bahas bagaimana mereka bekerja serta apa perbedaannya!\nThe Story Bayangkan saja kita adalah pemilik restoran. Setiap pengunjung selesai makan, kita meminta mereka untuk menuliskan review dari segi apapun sebagai bahan evaluasi restoran. Dan setiap akhir bulan kita melakukan evaluasi berdasarkan review pengunjung. Kebetulan, bulan ini kita mendapat 3 review yang isinya seperti berikut:\nReview 1: Makanan disini gurih dan enak!\nReview 2: Makanan disini biasa saja.\nReview 3: Makanan disini hambar dan tidak enak!\nSebagai pemilik restoran yang melek IT, kita ingin seluruh review nantinya diproses menggunakan komputer. Sayangnya oh sayangnya, komputer tidak mengerti bahasa manusia. Mereka hanya memahami angka. Oleh karena itu, kita perlu melakukan transformasi terhadap data kita dari teks menjadi sekumpulan angka yang biasa disebut vektor. Yuk, mari kita lakukan!\nBag of Words Bag of Words (BoW) merupakan salah satu metode paling sederhana dalam mengubah data teks menjadi vektor yang dapat dipahami oleh komputer. Metode ini sejatinya hanya menghitung frekuensi kemunculan kata pada seluruh dokumen.\nMari kita ingat kembali contoh yang sudah kita baca sebelumnya.\nReview 1: Makanan disini gurih dan enak!\nReview 2: Makanan disini biasa saja.\nReview 3: Makanan disini hambar dan tidak enak!\nPertama, kita abaikan tanda baca serta huruf kapital dari ketiga review tersebut. Kemudian kita bisa membentuk sebuah korpus / kamus kata seperti berikut.\n“makanan”\n“disini”\n“gurih”\n“dan”\n“enak”\n“biasa”\n“saja”\n“hambar”\n“tidak”\nPerlu diperhatikan sebelumnya, bahwa dalam membentuk korpus, kita hanya menghitung kata secara unik. Artinya, setiap kata yang berulang hanya akan ditulis sekali.\nBerikutnya, mari kita hitung frekuensi kemunculan kata di korpus tersebut kepada ketiga review sebelumnya. Kita beri nilai 1 jika kata tersebut muncul pada sebuah review dan 0 jika tidak muncul.\nAgar lebih mudah dalam memahminya, mari kita perhatikan tabel berikut. Perhitungan Bag of Words (BoW)\nDari tabel tersebut, akhirnya kita dapatkan vektor dari setiap review seperti berikut.\nVektor Review 1 = [1, 1, 1, 1, 1, 0, 0, 0, 0]\nVektor Review 2 = [1, 1, 0, 0, 0, 1, 1, 0, 0]\nVektor Review 3 = [1, 1, 0, 1, 1, 0, 0, 1, 1]\nItulah konsep dari Bag of Words, cukup mudah bukan? Namun, meski demikian metode ini ternyata memiliki beberapa kekurangan. Yuk mari kita ulas.\nKekurangan Bag of Words Ukuran korpus Bag of Words mengikuti jumlah kata unik dari seluruh dokumen. Artinya, jika nantinya terdapat berbagai kata unik baru maka ukuran korpus juga akan semakin membesar. Tentunya hal ini akan berpengaruh pada komputasi yang dibutuhkan pada saat kita melatih model machine learning. Seperti yang kita lihat pada tabel diatas, ada banyak angka 0 dalam vektor kita. Kondisi ini biasa juga disebut dengan sparse matrix. Hal tersebut harusnya kita hindari karena model harus menemukan informasi yang sedikit dalam ukuran data yang besar, yang tentunya juga akan membutuhkan proses komputasi lebih tinggi. Bag of Words menghilangkan konteks kalimat akibat tidak memperhatikan urutan kata. TF-IDF TF-IDF merupakan singkatan dari Term Frequency — Inverse Document Frequency. Sejatinya, TF-IDF merupakan gabungan dari 2 proses yaitu Term Frequency (TF) dan Inverse Document Frequency (IDF).\nTF-IDF biasa digunakan ketika kita ingin mengubah data teks menjadi vektor namun dengan memperhatikan apakah sebuah kata tersebut cukup informatif atau tidak. Mudahnya, TF-IDF membuat kata yang sering muncul memiliki nilai yang cenderung kecil, sedangkan untuk kata yang semakin jarang muncul akan memiliki nilai yang cenderung besar. Kata yang sering muncul disebut juga Stopwords biasanya dianggap kurang penting, salah satu contohnya adalah kata hubung (yang, di, akan, dengan, dll).\nSekarang, mari kita coba aplikasikan TF-IDF terhadap 3 review yang telah kita miliki sebelumnya.\nTerm Frequency (TF) Term Frequency (TF) menghitung frekuensi jumlah kemunculan kata pada sebuah dokumen. Karena panjang dari setiap dokumen bisa berbeda-beda, maka umumnya nilai TF ini dibagi dengan panjang dokumen (jumlah seluruh kata pada dokumen).\nRumus Term Frequency (TF)\nKeterangan\ntf = frekuensi kemunculan kata pada sebuah dokumen\nMari kita ambil contoh kalimat Review 1 untuk dihitung nilai TF nya.\nReview 1: Makanan disini gurih dan enak!\nKorpus = [“makanan”, “disini”, “gurih”, “dan”, “enak”] Panjang kalimat = 5 Sehingga perhitungan untuk nilai TF nya menjadi:\nTF(“makanan”) = 1/5 ≈ 0.2 TF(“disini”) = 1/5 ≈ 0.2 TF(“gurih”) = 1/5 ≈ 0.2 TF(“dan”) = 1/5 ≈ 0.2 TF(“enak”) = 1/5 ≈ 0.2 Berikutnya, mari kita coba terapkan pada seluruh review dan kita formulasikan ke dalam bentuk tabel seperti berikut.\nPerhitungan Term Frequency (TF)\nR1, R2, R3 merupakan notasi untuk setiap Review 1, Review 2, dan Review 3. Sedangkan TF1, TF2, TF3 merupakan notasi untuk nilai Term Frequency setiap Review.\nInverse Document Frequency (IDF) Setelah kita berhasil menghitung nilai Term Frequency, selanjutnya kita hitung nilai Inverse Document Frequency (IDF), yang merupakan nilai untuk mengukur seberapa penting sebuah kata. IDF akan menilai kata yang sering muncul sebagai kata yang kurang penting berdasarkan kemunculan kata tersebut pada seluruh dokumen. Semakin kecil nilai IDF maka akan dianggap semakin tidak penting kata tersebut, begitu pula sebaliknya.\nRumus Inverse Document Frequency (IDF)\nSetiap review yang diberikan oleh pelanggan merupakan sebuah dokumen. Karena pada tulisan ini kita mempunyai 3 review, maka artinya kita mempunyai 3 dokumen.\nMari kita coba hitung nilai IDF untuk masing-masing kata pada Review 1.\nReview 1: Makanan disini gurih dan enak!\nKorpus = [“makanan”, “disini”, “gurih”, “dan”, “enak”] Jumlah dokumen = 3 Sehingga perhitungan untuk nilai IDF nya menjadi:\nIDF(“makanan”) = $log(\\frac{3} {3})$ ≈ 0 IDF(“disini”) = $log(\\frac{3} {3})$ ≈ 0 IDF(“gurih”) = $log(\\frac{3} {1})$ ≈ 0.48 IDF(“dan”) = $log(\\frac{3} {2})$ ≈ 0.18 IDF(“enak”) = $log(\\frac{3} {2})$ ≈ 0.18 Sekarang, mari kita coba terapkan pada seluruh kata dan kita lengkapi tabel TF sebelumnya seperti berikut.\nPerhitungan Inverse Document Frequency (IDF)\nTerm Frequency — Inverse Document Frequency (TF-IDF) Setelah kita punya TF dan IDF, berikutnya kita bisa menghitung nilai TF-IDF yang merupakan hasil perkalian dari TF dan IDF.\nRumus TF-IDF\nKarena kita sudah memiliki nilai TF dan IDF untuk setiap kata, maka mari kita coba hitung nilai TF-IDF untuk setiap kata pada Review 1.\nReview 1: Makanan disini gurih dan enak!\nmakanan\nTF(“makanan”) = 1/5 ≈ 0.2 IDF(“makanan”) = $log(\\frac{3} {3})$ ≈ 0 TFIDF(“makanan”) = $0.2 \\times0=0$ disini\nTF(“disini”) = 1/5 ≈ 0.2 IDF(“disini”) = $log(\\frac{3} {3})$ ≈ 0 TFIDF(“disini”) = $0.2 \\times0=0$ gurih\nTF(“gurih”) = 1/5 ≈ 0.2 IDF(“gurih”) = $log(\\frac{3} {1})$ ≈ 0.48 TFIDF(“gurih”) = $0.2 \\times0.48=0.095$ dan\nTF(“dan”) = 1/5 ≈ 0.2 IDF(“dan”) = $log(\\frac{3} {2})$ ≈ 0.18 TFIDF(“makanan”) = $0.2 \\times0.18=0.035$ enak\nTF(“enak”) = 1/5 ≈ 0.2 IDF(“enak”) = $log(\\frac{3} {2})$ ≈ 0.18 TFIDF(“makanan”) = $0.2 \\times0.18=0.035$ Sekarang, mari kita coba lengkapi tabel sebelumnya dengan nilai TF-IDF pada seluruh kata seperti berikut.\nPerhitungan Term Frequency — Inverse Document Frequency (TF-IDF)\nNote: Mungkin untuk sebagian perhitungan, angkanya tidak presisi dikarenakan tools yang saya gunakan. Semoga bisa dimaklumi dan tetap bisa diambil konsepnya 🙂\nDari tabel tersebut, akhirnya kita dapatkan vektor dari setiap review yang dinotasikan oleh TFIDF1, TFIDF2, dan TFIDF3 seperti berikut.\nVektor Review 1 = [0, 0, 0.095, 0.035, 0.035, 0, 0, 0, 0]\nVektor Review 2 = [0, 0, 0, 0, 0, 0.119, 0.119, 0, 0]\nVektor Review 3 = [0, 0, 0, 0.0293, 0.0293, 0, 0, 0.080, 0.080]\nKekurangan TF-IDF TF-IDF sejatinya berdasar pada Bag of Words (BoW), sehingga TF-IDF pun tidak bisa menangkap posisi teks dan semantiknya. TF-IDF hanya berguna sebagai fitur di level leksikal. So, itulah perbedaan antara Bag of Words (BoW) dan TF-IDF sebagai metode untuk transformasi teks menjadi vektor. Jika ada pertanyaan, diskusi, sanggahan, kritik, maupun saran jangan pernah ragu untuk menuliskannya di kolom komentar 🙂\nSekian tulisan saya kali ini, mohon maaf apabila ada kekurangan dan salah kata, semoga bermanfaat. Terima kasih!\nYuk, belajar dan diskusi lebih lanjut tentang seputar Data Science, Artificial Intelligence, dan Machine Learning dengan gabung di discord Jakarta AI Research. Dan jangan lupa follow medium Data Folks Indonesia biar nggak ketinggalan update terbaru dari kami.\nReferensi https://www.analyticsvidhya.com/blog/2020/02/quick-introduction-bag-of-words-bow-tf-idf/ https://machinelearningmastery.com/gentle-introduction-bag-words-model/ http://www.tfidf.com/ https://www.quora.com/What-are-the-advantages-and-disadvantages-of-TF-IDF ",
+  "wordCount" : "1317",
+  "inLanguage": "en",
+  "image":"/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/https:/unsplash.com/photos/PyUXxFrYweY/download?ixid=M3wxMjA3fDB8MXxhbGx8OHx8fHx8fDJ8fDE3MDM3ODYyMzF8\u0026force=true\u0026w=640","datePublished": "2021-11-01T23:53:18+07:00",
+  "dateModified": "2021-11-01T23:53:18+07:00",
+  "author":{
+    "@type": "Person",
+    "name": "Affandy Fahrizain"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "fhrzn",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="" accesskey="h" title="fhrzn (Alt + H)">fhrzn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Bag of Words vs TF-IDF — Penjelasan dan Perbedaannya
+    </h1>
+    <div class="post-description">
+      Bag of Words dan TF-IDF adalah 2 metode transformasi teks yang cukup populer. Mari kita bahas cara kerja serta perbedaannya!
+    </div>
+    <div class="post-meta"><span title='2021-11-01 23:53:18 +0700 WIB'>November 1, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1317 words&nbsp;·&nbsp;Affandy Fahrizain
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="https://unsplash.com/photos/PyUXxFrYweY/download?ixid=M3wxMjA3fDB8MXxhbGx8OHx8fHx8fDJ8fDE3MDM3ODYyMzF8&amp;force=true&amp;w=640" alt="Cover Post">
+        <p>Photo by <a href="https://unsplash.com/@alfonsmc10">Alfons Morales</a> on <a href="https://unsplash.com/photos/YLSwjSy7stw">Unsplash</a></p>
+</figure>
+  <div class="post-content"><blockquote>
+<p>Ketika kita berhubungan dengan data teks seperti klasifikasi teks misalnya, kita tentunya harus melakukan transformasi data teks menjadi sekumpulan angka (vektor) terlebih dahulu sebelum melakukan modelling. Nah, 2 metode yang cukup populer diantaranya adalah Bag of Words dan TF-IDF. Mari kita bahas bagaimana mereka bekerja serta apa perbedaannya!</p>
+</blockquote>
+<h1 id="the-story">The Story<a hidden class="anchor" aria-hidden="true" href="#the-story">#</a></h1>
+<p>Bayangkan saja kita adalah pemilik restoran. Setiap pengunjung selesai makan, kita meminta mereka untuk menuliskan review dari segi apapun sebagai bahan evaluasi restoran. Dan setiap akhir bulan kita melakukan evaluasi berdasarkan review pengunjung. Kebetulan, bulan ini kita mendapat 3 review yang isinya seperti berikut:</p>
+<p><strong><em>Review 1:</em></strong> <em>Makanan disini gurih dan enak!</em></p>
+<p><strong><em>Review 2:</em></strong> <em>Makanan disini biasa saja.</em></p>
+<p><strong><em>Review 3</em></strong><em>: Makanan disini hambar dan tidak enak!</em></p>
+<p>Sebagai pemilik restoran yang melek IT, kita ingin seluruh review nantinya diproses menggunakan komputer. Sayangnya oh sayangnya, komputer tidak mengerti bahasa manusia. Mereka hanya memahami angka. Oleh karena itu, kita perlu melakukan transformasi terhadap data kita dari teks menjadi sekumpulan angka yang biasa disebut vektor. Yuk, mari kita lakukan!</p>
+<h1 id="bag-of-words">Bag of Words<a hidden class="anchor" aria-hidden="true" href="#bag-of-words">#</a></h1>
+<p>Bag of Words (BoW) merupakan salah satu metode paling sederhana dalam mengubah data teks menjadi vektor yang dapat dipahami oleh komputer. Metode ini sejatinya hanya menghitung frekuensi kemunculan kata pada seluruh dokumen.</p>
+<p>Mari kita ingat kembali contoh yang sudah kita baca sebelumnya.</p>
+<p><strong><em>Review 1:</em></strong> <em>Makanan disini gurih dan enak!</em></p>
+<p><strong><em>Review 2:</em></strong> <em>Makanan disini biasa saja.</em></p>
+<p><strong><em>Review 3</em></strong><em>: Makanan disini hambar dan tidak enak!</em></p>
+<p>Pertama, kita abaikan tanda baca serta huruf kapital dari ketiga review tersebut. Kemudian kita bisa membentuk sebuah korpus / kamus kata seperti berikut.</p>
+<p>“makanan”</p>
+<p>“disini”</p>
+<p>“gurih”</p>
+<p>“dan”</p>
+<p>“enak”</p>
+<p>“biasa”</p>
+<p>“saja”</p>
+<p>“hambar”</p>
+<p>“tidak”</p>
+<p><em>Perlu diperhatikan sebelumnya, bahwa dalam membentuk korpus, kita hanya menghitung kata secara unik. Artinya, setiap kata yang berulang hanya akan ditulis sekali.</em></p>
+<p>Berikutnya, mari kita hitung frekuensi kemunculan kata di korpus tersebut kepada ketiga review sebelumnya. Kita beri nilai <strong>1</strong> jika kata tersebut muncul pada sebuah review dan <strong>0</strong> jika tidak muncul.</p>
+<p>Agar lebih mudah dalam memahminya, mari kita perhatikan tabel berikut.
+<img loading="lazy" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*Kq-sqbWpvxn_cbm4e_vkBw.png" alt="Bag of words"  />
+
+<em>Perhitungan Bag of Words (BoW)</em></p>
+<p>Dari tabel tersebut, akhirnya kita dapatkan vektor dari setiap review seperti berikut.</p>
+<p><strong>Vektor Review 1</strong> = [1, 1, 1, 1, 1, 0, 0, 0, 0]</p>
+<p><strong>Vektor Review 2</strong> = [1, 1, 0, 0, 0, 1, 1, 0, 0]</p>
+<p><strong>Vektor Review 3</strong> = [1, 1, 0, 1, 1, 0, 0, 1, 1]</p>
+<p>Itulah konsep dari Bag of Words, cukup mudah bukan? Namun, meski demikian metode ini ternyata memiliki beberapa kekurangan. Yuk mari kita ulas.</p>
+<h2 id="kekurangan-bag-of-words">Kekurangan Bag of Words<a hidden class="anchor" aria-hidden="true" href="#kekurangan-bag-of-words">#</a></h2>
+<ol>
+<li>Ukuran korpus Bag of Words mengikuti jumlah kata unik dari seluruh dokumen. Artinya, jika nantinya terdapat berbagai kata unik baru maka ukuran korpus juga akan semakin membesar. Tentunya hal ini akan berpengaruh pada komputasi yang dibutuhkan pada saat kita melatih model machine learning.</li>
+<li>Seperti yang kita lihat pada tabel diatas, ada banyak angka 0 dalam vektor kita. Kondisi ini biasa juga disebut dengan <em>sparse matrix</em>. Hal tersebut harusnya kita hindari karena model harus menemukan informasi yang sedikit dalam ukuran data yang besar, yang tentunya juga akan membutuhkan proses komputasi lebih tinggi.</li>
+<li>Bag of Words menghilangkan konteks kalimat akibat tidak memperhatikan urutan kata.</li>
+</ol>
+<h1 id="tf-idf">TF-IDF<a hidden class="anchor" aria-hidden="true" href="#tf-idf">#</a></h1>
+<p>TF-IDF merupakan singkatan dari <em>Term Frequency — Inverse Document Frequency</em>. Sejatinya, TF-IDF merupakan gabungan dari 2 proses yaitu <strong><em>Term Frequency</em> (TF)</strong> dan <strong><em>Inverse Document Frequency</em> (IDF)</strong>.</p>
+<p>TF-IDF biasa digunakan ketika kita ingin mengubah data teks menjadi vektor namun dengan memperhatikan apakah sebuah kata tersebut cukup informatif atau tidak. Mudahnya, TF-IDF membuat kata yang sering muncul memiliki nilai yang cenderung kecil, sedangkan untuk kata yang semakin jarang muncul akan memiliki nilai yang cenderung besar. Kata yang sering muncul disebut juga <strong><em>Stopwords</em></strong> biasanya dianggap kurang penting, salah satu contohnya adalah kata hubung (yang, di, akan, dengan, dll).</p>
+<p>Sekarang, mari kita coba aplikasikan TF-IDF terhadap 3 review yang telah kita miliki sebelumnya.</p>
+<h2 id="term-frequency-tf">Term Frequency (TF)<a hidden class="anchor" aria-hidden="true" href="#term-frequency-tf">#</a></h2>
+<p>Term Frequency (TF) menghitung frekuensi jumlah kemunculan kata pada sebuah dokumen. Karena panjang dari setiap dokumen bisa berbeda-beda, maka umumnya nilai TF ini dibagi dengan panjang dokumen (jumlah seluruh kata pada dokumen).</p>
+<p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*QgForh1rYt4_qJyp.png" alt="Term Frequency"  />
+
+<em>Rumus Term Frequency (TF)</em></p>
+<p><strong>Keterangan</strong></p>
+<p>tf = frekuensi kemunculan kata pada sebuah dokumen</p>
+<p>Mari kita ambil contoh kalimat Review 1 untuk dihitung nilai TF nya.</p>
+<p><strong><em>Review 1:</em></strong> <em>Makanan disini gurih dan enak!</em></p>
+<ul>
+<li>Korpus = [“makanan”, “disini”, “gurih”, “dan”, “enak”]</li>
+<li>Panjang kalimat = 5</li>
+</ul>
+<p>Sehingga perhitungan untuk nilai TF nya menjadi:</p>
+<ul>
+<li>TF(“<strong>makanan</strong>”) = 1/5 ≈ 0.2</li>
+<li>TF(“<strong>disini</strong>”) = 1/5 ≈ 0.2</li>
+<li>TF(“<strong>gurih</strong>”) = 1/5 ≈ 0.2</li>
+<li>TF(“<strong>dan</strong>”) = 1/5 ≈ 0.2</li>
+<li>TF(“<strong>enak</strong>”) = 1/5 ≈ 0.2</li>
+</ul>
+<p>Berikutnya, mari kita coba terapkan pada seluruh review dan kita formulasikan ke dalam bentuk tabel seperti berikut.</p>
+<p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*y-flD_EXBtTKjSrd" alt="Perhitungan Term Frequency"  />
+
+<em>Perhitungan Term Frequency (TF)</em></p>
+<p><strong>R1, R2, R3</strong> merupakan notasi untuk setiap <strong><em>Review 1, Review 2,</em></strong> dan <strong><em>Review 3</em></strong>. Sedangkan <strong>TF1, TF2, TF3</strong> merupakan notasi untuk nilai <strong><em>Term Frequency</em></strong> setiap Review.</p>
+<h2 id="inverse-document-frequency-idf">Inverse Document Frequency (IDF)<a hidden class="anchor" aria-hidden="true" href="#inverse-document-frequency-idf">#</a></h2>
+<p>Setelah kita berhasil menghitung nilai Term Frequency, selanjutnya kita hitung nilai <strong>Inverse Document Frequency</strong> (IDF), yang merupakan nilai untuk mengukur seberapa penting sebuah kata. IDF akan menilai kata yang sering muncul sebagai kata yang kurang penting berdasarkan kemunculan kata tersebut pada seluruh dokumen. Semakin kecil nilai IDF maka akan dianggap semakin tidak penting kata tersebut, begitu pula sebaliknya.</p>
+<p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*nLUqaPGaf7ISsMST.png" alt="Inverse Document Frequency"  />
+
+<em>Rumus Inverse Document Frequency (IDF)</em></p>
+<p>Setiap review yang diberikan oleh pelanggan merupakan sebuah dokumen. Karena pada tulisan ini kita mempunyai 3 review, maka artinya kita mempunyai 3 dokumen.</p>
+<p>Mari kita coba hitung nilai IDF untuk masing-masing kata pada Review 1.</p>
+<p><strong><em>Review 1:</em></strong> <em>Makanan disini gurih dan enak!</em></p>
+<ul>
+<li>Korpus = [“makanan”, “disini”, “gurih”, “dan”, “enak”]</li>
+<li>Jumlah dokumen = 3</li>
+</ul>
+<p>Sehingga perhitungan untuk nilai IDF nya menjadi:</p>
+<ul>
+<li>IDF(“<strong>makanan</strong>”) = $log(\frac{3} {3})$ ≈ 0</li>
+<li>IDF(“<strong>disini</strong>”) = $log(\frac{3} {3})$ ≈ 0</li>
+<li>IDF(“<strong>gurih</strong>”) = $log(\frac{3} {1})$ ≈ 0.48</li>
+<li>IDF(“<strong>dan</strong>”) = $log(\frac{3} {2})$ ≈ 0.18</li>
+<li>IDF(“<strong>enak</strong>”) = $log(\frac{3} {2})$ ≈ 0.18</li>
+</ul>
+<p>Sekarang, mari kita coba terapkan pada seluruh kata dan kita lengkapi tabel TF sebelumnya seperti berikut.</p>
+<p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*NcBUdfPD4dBwZ6hD" alt="Perhitungan Inverse Document Frequency"  />
+
+<em>Perhitungan Inverse Document Frequency (IDF)</em></p>
+<h2 id="term-frequency--inverse-document-frequency-tf-idf">Term Frequency — Inverse Document Frequency (TF-IDF)<a hidden class="anchor" aria-hidden="true" href="#term-frequency--inverse-document-frequency-tf-idf">#</a></h2>
+<p>Setelah kita punya TF dan IDF, berikutnya kita bisa menghitung nilai TF-IDF yang merupakan hasil perkalian dari TF dan IDF.</p>
+<p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:640/format:webp/0*gVV1W6_AjuXUmnF8.png" alt="Rumus TF-IDF"  />
+
+<em>Rumus TF-IDF</em></p>
+<p>Karena kita sudah memiliki nilai TF dan IDF untuk setiap kata, maka mari kita coba hitung nilai TF-IDF untuk setiap kata pada Review 1.</p>
+<p><strong><em>Review 1:</em></strong> <em>Makanan disini gurih dan enak!</em></p>
+<p><strong>makanan</strong></p>
+<ul>
+<li>TF(“<strong>makanan</strong>”) = 1/5 ≈ 0.2</li>
+<li>IDF(“<strong>makanan</strong>”) = $log(\frac{3} {3})$ ≈ 0</li>
+<li>TFIDF(<strong>“makanan”</strong>) = $0.2 \times0=0$</li>
+</ul>
+<p><strong>disini</strong></p>
+<ul>
+<li>TF(“<strong>disini</strong>”) = 1/5 ≈ 0.2</li>
+<li>IDF(“<strong>disini</strong>”) = $log(\frac{3} {3})$ ≈ 0</li>
+<li>TFIDF(<strong>“disini”</strong>) = $0.2 \times0=0$</li>
+</ul>
+<p><strong>gurih</strong></p>
+<ul>
+<li>TF(“<strong>gurih</strong>”) = 1/5 ≈ 0.2</li>
+<li>IDF(“<strong>gurih</strong>”) = $log(\frac{3} {1})$ ≈ 0.48</li>
+<li>TFIDF(<strong>“gurih”</strong>) = $0.2 \times0.48=0.095$</li>
+</ul>
+<p><strong>dan</strong></p>
+<ul>
+<li>TF(“<strong>dan</strong>”) = 1/5 ≈ 0.2</li>
+<li>IDF(“<strong>dan</strong>”) = $log(\frac{3} {2})$ ≈ 0.18</li>
+<li>TFIDF(<strong>“makanan”</strong>) = $0.2 \times0.18=0.035$</li>
+</ul>
+<p><strong>enak</strong></p>
+<ul>
+<li>TF(“<strong>enak</strong>”) = 1/5 ≈ 0.2</li>
+<li>IDF(“<strong>enak</strong>”) = $log(\frac{3} {2})$ ≈ 0.18</li>
+<li>TFIDF(<strong>“makanan”</strong>) = $0.2 \times0.18=0.035$</li>
+</ul>
+<p>Sekarang, mari kita coba lengkapi tabel sebelumnya dengan nilai TF-IDF pada seluruh kata seperti berikut.</p>
+<p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*zB5yKRC0KmsSGvbO" alt="Perhitungan TF"  />
+
+<em>Perhitungan Term Frequency — Inverse Document Frequency (TF-IDF)</em></p>
+<blockquote>
+<p>N<strong>ote</strong>: Mungkin untuk sebagian perhitungan, angkanya tidak presisi dikarenakan tools yang saya gunakan. Semoga bisa dimaklumi dan tetap bisa diambil konsepnya 🙂</p>
+</blockquote>
+<p>Dari tabel tersebut, akhirnya kita dapatkan vektor dari setiap review yang dinotasikan oleh <strong><em>TFIDF1, TFIDF2,</em></strong> dan <strong><em>TFIDF3</em></strong> seperti berikut.</p>
+<p><strong>Vektor Review 1</strong> = [0, 0, 0.095, 0.035, 0.035, 0, 0, 0, 0]</p>
+<p><strong>Vektor Review 2</strong> = [0, 0, 0, 0, 0, 0.119, 0.119, 0, 0]</p>
+<p><strong>Vektor Review 3</strong> = [0, 0, 0, 0.0293, 0.0293, 0, 0, 0.080, 0.080]</p>
+<h2 id="kekurangan-tf-idf">Kekurangan TF-IDF<a hidden class="anchor" aria-hidden="true" href="#kekurangan-tf-idf">#</a></h2>
+<ol>
+<li>TF-IDF sejatinya berdasar pada Bag of Words (BoW), sehingga TF-IDF pun tidak bisa menangkap posisi teks dan semantiknya.</li>
+<li>TF-IDF hanya berguna sebagai fitur di level leksikal.</li>
+</ol>
+<p>So, itulah perbedaan antara Bag of Words (BoW) dan TF-IDF sebagai metode untuk transformasi teks menjadi vektor. Jika ada pertanyaan, diskusi, sanggahan, kritik, maupun saran jangan pernah ragu untuk menuliskannya di kolom komentar 🙂</p>
+<p>Sekian tulisan saya kali ini, mohon maaf apabila ada kekurangan dan salah kata, semoga bermanfaat. Terima kasih!</p>
+<p>Yuk, belajar dan diskusi lebih lanjut tentang seputar Data Science, Artificial Intelligence, dan Machine Learning dengan gabung di discord <a href="https://discord.gg/6v28dq8dRE">Jakarta AI Research</a>. Dan jangan lupa follow medium <a href="https://medium.com/data-folks-indonesia">Data Folks Indonesia</a> biar nggak ketinggalan update terbaru dari kami.</p>
+<hr>
+<h3 id="referensi">Referensi<a hidden class="anchor" aria-hidden="true" href="#referensi">#</a></h3>
+<ol>
+<li><a href="https://www.analyticsvidhya.com/blog/2020/02/quick-introduction-bag-of-words-bow-tf-idf/">https://www.analyticsvidhya.com/blog/2020/02/quick-introduction-bag-of-words-bow-tf-idf/</a></li>
+<li><a href="https://machinelearningmastery.com/gentle-introduction-bag-words-model/">https://machinelearningmastery.com/gentle-introduction-bag-words-model/</a></li>
+<li><a href="http://www.tfidf.com/">http://www.tfidf.com/</a></li>
+<li><a href="https://www.quora.com/What-are-the-advantages-and-disadvantages-of-TF-IDF">https://www.quora.com/What-are-the-advantages-and-disadvantages-of-TF-IDF</a></li>
+</ol>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="/tags/textprocessing/">textprocessing</a></li>
+      <li><a href="/tags/tfidf/">tfidf</a></li>
+      <li><a href="/tags/preprocessing/">preprocessing</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="/posts/quick-export-your-jupyter-notebook-to-pdf/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Quick Export your Jupyter Notebook to PDF</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="">fhrzn</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

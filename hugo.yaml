@@ -1,0 +1,62 @@
+baseURL: ''
+languageCode: en-us
+title: fhrzn
+theme: "PaperMod"
+
+params:
+    ShowReadingTime: true
+    ShowShareButtons: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: false
+    ShowCodeCopyButtons: true
+    ShowWordCount: true
+    ShowRssButtonInSectionTermList: true
+
+    author: "Affandy Fahrizain"
+
+    cover:
+      hiddenInList: true # hide on list pages and home
+
+
+
+    homeInfoParams:
+      Title: "Hey, I’m Fahrizain \U0001F44B"
+      Content: I'm a passionate AI & Data Engineer who currently exploring NLP and Speech Recognition at Kata.ai and Jakarta AI Research. Always up for chats about software, data, and AI/ML. Let's connect! 🚀
+    socialIcons:
+    - name: twitter
+      url: https://twitter.com/fhrzn_
+    - name: github
+      url: https://github.com/fhrzn
+    - name: linkedin
+      url: https://www.linkedin.com/in/fahrizainn/
+
+    # profile-mode
+    profileMode:
+      enabled: false # needs to be explicitly set
+      title: "Hey, I’m Zen \U0001F44B"
+      subtitle: "I am an AI & Data Engineer at Kata.ai."
+      imageUrl: "<img location>"
+      imageWidth: 120
+      imageHeight: 120
+      imageTitle: my image
+      buttons:
+        - name: Posts
+          url: posts
+        - name: Tags
+          url: tags
+
+
+# menu:
+#     main:
+#     - identifier: home
+#       name: Home
+#       url: /
+#       weight: 10
+#     - identifier: posts
+#       name: Posts
+#       url: /posts/
+#       weight: 20
+    # - identifier: contents
+    #   name: Contents
+    #   url: https://joelolawanle.com/contents
+    #   weight: 30

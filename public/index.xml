@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fhrzn</title>
+    <link>/</link>
+    <description>Recent content on fhrzn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Oct 2022 23:53:18 +0700</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring Vision Transformers (ViT) with 🤗 Huggingface</title>
+      <link>/posts/exploring-visual-transformers-vit-with-huggingface/</link>
+      <pubDate>Fri, 14 Oct 2022 23:53:18 +0700</pubDate>
+      <guid>/posts/exploring-visual-transformers-vit-with-huggingface/</guid>
+      <description>An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Dosovitskiy et al., 2021)</description>
+    </item>
+    <item>
+      <title>Quick Export your Jupyter Notebook to PDF</title>
+      <link>/posts/quick-export-your-jupyter-notebook-to-pdf/</link>
+      <pubDate>Sun, 07 Aug 2022 23:53:18 +0700</pubDate>
+      <guid>/posts/quick-export-your-jupyter-notebook-to-pdf/</guid>
+      <description>What if I tell you there are some way to simply export your beloved notebook to PDFs?</description>
+    </item>
+    <item>
+      <title>Bag of Words vs TF-IDF — Penjelasan dan Perbedaannya</title>
+      <link>/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</link>
+      <pubDate>Mon, 01 Nov 2021 23:53:18 +0700</pubDate>
+      <guid>/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</guid>
+      <description>Bag of Words dan TF-IDF adalah 2 metode transformasi teks yang cukup populer. Mari kita bahas cara kerja serta perbedaannya!</description>
+    </item>
+  </channel>
+</rss>
