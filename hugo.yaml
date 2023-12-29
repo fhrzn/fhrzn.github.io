@@ -3,6 +3,8 @@ languageCode: en-us
 title: fhrzn
 theme: "PaperMod"
 
+publishDir: "docs"
+
 params:
     ShowReadingTime: true
     ShowShareButtons: true
