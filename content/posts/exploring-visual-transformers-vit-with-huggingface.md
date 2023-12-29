@@ -4,7 +4,7 @@ date: 2022-10-14T23:53:18+07:00
 tags: ["deeplearning", "computervision"]
 draft: false
 description: "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Dosovitskiy et al., 2021)"
-disableShare: false
+disableShare: true
 hideSummary: false
 ShowReadingTime: true
 ShowWordCount: true
