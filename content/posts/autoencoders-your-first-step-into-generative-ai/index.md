@@ -117,7 +117,7 @@ class config:
 
 When I explored the dataset, I found the original images were flipped and rotated like this.
 
-![Rotated EMNIST images](images/Untitled.png)
+![Rotated EMNIST images](images/Untitled.png#center)
 
 Therefore, we need to fix it into correct direction. Fortunately, torchvision has very helpful utilities to perform data transformation.
 
@@ -155,7 +155,7 @@ test_data = datasets.EMNIST(root='data',
 
 With the transformation applied, now if we interpret our data it will be in the correct direction.
 
-![Transformed EMNIST images](images/Untitled%201.png)
+![Transformed EMNIST images](images/Untitled%201.png#center)
 
 Next, let’s prepare our dataloaders!
 
@@ -335,7 +335,7 @@ plt.legend()
 plt.show()
 ```
 
-![Training Loss](images/Untitled%202.png)
+![Training Loss](images/Untitled%202.png#center)
 
 After training for several epochs, we then evaluate it on our test set. Don’t forget to turn off the gradient by putting `torch.no_grad()` during evaluation since we don’t need any backpropagation process.
 
@@ -360,7 +360,7 @@ print('Test Loss: %.4f' % (testloss / len(testloader)))
 print('Total Testing Time: %.2f min' % ((time.time() - testtime) / 60))
 ```
 
-![Test Loss](images/Untitled%203.png)
+![Test Loss](images/Untitled%203.png#center)
 
 ### Inference
 

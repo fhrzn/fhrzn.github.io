@@ -72,7 +72,7 @@ fig, ax = plt.subplots(2, 3, sharex=True, sharey=True, figsize=(10,6))for i in r
         plt.show()
 ```
 
-![Dataset sneak peek](https://miro.medium.com/v2/resize:fit:640/format:webp/1*c4RvCzuh84nsUw5kn28PqA.png)
+![Dataset sneak peek](https://miro.medium.com/v2/resize:fit:640/format:webp/1*c4RvCzuh84nsUw5kn28PqA.png#center)
 *Few of our dataset looks like*
 
 Next, as we already know, we need to transform our images into fixed-size patches and flatten it. We also need to add positional encoding and the _classification token._ Here we will use 🤗 Huggingface Feature Extractor module which do all mechanism for us!
@@ -85,7 +85,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 extractor = ViTFeatureExtractor.from_pretrained(model_ckpt)extractor(samples[0]['image'], return_tensors='pt')
 ```
 
-![](https://miro.medium.com/v2/resize:fit:640/format:webp/1*zrS0kcR2kBmOtLpFCuHa2Q.png)
+![](https://miro.medium.com/v2/resize:fit:640/format:webp/1*zrS0kcR2kBmOtLpFCuHa2Q.png#center)
 *Our extracted features looks like*
 
 Note that our original image has white background, that’s why our extracted features having a lot of `1.` value. Don’t worry, its normal, everything will be work :)
@@ -158,7 +158,7 @@ print(f'F1: {f1_score(zero_true, zero_pred, average="weighted"):.3f}')
 
 In short, we put our transformed data in DataLoader which going to be transformed on the fly. Then, for every batch, we pass our transformed data into our pretrained model. Next, we take the logits only from the model output. Remember that we have classification head with number of output 3. So, for each inferred image we will have 3 logits score. Among these 3 score, we will take the maximum one and return its index using `.argmax()`. Finally, we plot our confusion matrix and print the accuracy and F1 score.
 
-![confusion matrix](https://miro.medium.com/v2/resize:fit:640/format:webp/1*o0KeIxC7nfv3-v43EBqPDA.png)
+![confusion matrix](https://miro.medium.com/v2/resize:fit:640/format:webp/1*o0KeIxC7nfv3-v43EBqPDA.png#center)
 *ViT confusion matrix on zero-shot scenario*
 
 Surprisingly, we got a unsatisfied metrics score with `Accuracy: 0.329` and `F1-Score: 0.307`. OK, next let’s fine-tune our model for 3 epochs and test the performance again. Here, I used Kaggle environment to train model.
@@ -221,7 +221,8 @@ Here is our prediction scores on test data. Our finetuned model now has a very g
  'test_steps_per_second': 6.122}
 ```
 
-![prediction result](https://miro.medium.com/v2/resize:fit:640/format:webp/1*FCx445gVXRtjQ69YXVECbQ.png)
+![prediction result](https://miro.medium.com/v2/resize:fit:640/format:webp/1*FCx445gVXRtjQ69YXVECbQ.png#center)
+
 *Prediction result*
 
 ## Conclusion
