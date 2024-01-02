@@ -1,7 +1,10 @@
-baseURL: ''
+baseURL: 'https://fhrzn.github.io/'
 languageCode: en-us
-title: fhrzn
+paginate: 10
+title: Fahrizain
 theme: "PaperMod"
+
+publishDir: "docs"
 
 params:
     ShowReadingTime: true
@@ -13,10 +16,15 @@ params:
     ShowRssButtonInSectionTermList: true
 
     author: "Affandy Fahrizain"
+    comments: true
+    label:
+      icon: "favicon.ico"
 
     cover:
       hiddenInList: true # hide on list pages and home
 
+    meta:
+      favicon: true
 
 
     homeInfoParams:

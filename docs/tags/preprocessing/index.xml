@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>preprocessing on Fahrizain</title>
+    <link>https://fhrzn.github.io/tags/preprocessing/</link>
+    <description>Recent content in preprocessing on Fahrizain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Nov 2021 23:53:18 +0700</lastBuildDate>
+    <atom:link href="https://fhrzn.github.io/tags/preprocessing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bag of Words vs TF-IDF — Penjelasan dan Perbedaannya</title>
+      <link>https://fhrzn.github.io/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</link>
+      <pubDate>Mon, 01 Nov 2021 23:53:18 +0700</pubDate>
+      <guid>https://fhrzn.github.io/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</guid>
+      <description>Bag of Words dan TF-IDF adalah 2 metode transformasi teks yang cukup populer. Mari kita bahas cara kerja serta perbedaannya!</description>
+    </item>
+  </channel>
+</rss>

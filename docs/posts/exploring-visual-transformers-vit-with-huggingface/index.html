@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Exploring Vision Transformers (ViT) with 🤗 Huggingface | Fahrizain</title>
+<meta name="keywords" content="deeplearning, computervision">
+<meta name="description" content="An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Dosovitskiy et al., 2021)">
+<meta name="author" content="Affandy Fahrizain">
+<link rel="canonical" href="https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e087fd1dc76e73a35ae6d7028ddc1ba41e0131e7f9b3a6e2d019a208e6d6c4b5.css" integrity="sha256-4If9Hcduc6Na5tcCjdwbpB4BMef5s6bi0BmiCObWxLU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://fhrzn.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://fhrzn.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://fhrzn.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://fhrzn.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://fhrzn.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Exploring Vision Transformers (ViT) with 🤗 Huggingface" />
+<meta property="og:description" content="An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Dosovitskiy et al., 2021)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/" />
+<meta property="og:image" content="https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/https:/unsplash.com/photos/MAYsdoYpGuk/download?ixid=M3wxMjA3fDB8MXxhbGx8M3x8fHx8fDJ8fDE3MDM3ODgzODd8&amp;force=true&amp;w=640" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-14T23:53:18+07:00" />
+<meta property="article:modified_time" content="2022-10-14T23:53:18+07:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/https:/unsplash.com/photos/MAYsdoYpGuk/download?ixid=M3wxMjA3fDB8MXxhbGx8M3x8fHx8fDJ8fDE3MDM3ODgzODd8&amp;force=true&amp;w=640" />
+<meta name="twitter:title" content="Exploring Vision Transformers (ViT) with 🤗 Huggingface"/>
+<meta name="twitter:description" content="An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Dosovitskiy et al., 2021)"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://fhrzn.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Exploring Vision Transformers (ViT) with 🤗 Huggingface",
+      "item": "https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Exploring Vision Transformers (ViT) with 🤗 Huggingface",
+  "name": "Exploring Vision Transformers (ViT) with 🤗 Huggingface",
+  "description": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Dosovitskiy et al., 2021)",
+  "keywords": [
+    "deeplearning", "computervision"
+  ],
+  "articleBody": "Lately, I was working on a course project where we asked to review one of the modern DL papers from top latest conferences and make an experimental test with our own dataset. So, here I am thrilled to share with you about my exploration!\nBackground As self-attention based model like Transformers has successfully become a standard in NLP area, it triggers researchers to adapt attention-based models in Computer Vision too. There were different evidences, such as combine CNN with self-attention and completely replace Convolutions. While this selected paper belongs to the latter aproach.\nThe application of attention mechanism in images requires each pixel attends to every other pixel, which indeed requires expensive computation. Hence, several techniques have been applied such as self-attention only in local neighborhoods [1], using local multihead dot product self-attention blocks to completely replace convolutions [2][3][4], postprocessing CNN outputs using self- attention [5][6], etc. Although shown promising results, these techniques quite hard to be scaled and requires complex engineering to be implemented efficiently on hardware accelerators.\nOn the other hand, Transformers model is based on MLP networks, it has more computational efficiency and scalability, making its possible to train big models with over 100B parameters.\nMethods General architecture of ViT. Taken from the original paper (Dosovitskiy et al., 2021)\nThe original Transformers model treat its input as sequences which very different approach with CNN, hence the inputted images need to be extracted into fixed-size patches and flattened. Similar to BERT [CLS] token, the so-called classification token will be added into the beginning of the sequences, which will serve as image representation and later will be fed into classification head. Finally, to retain the positional information of the sequences, positional embedding will be added to each patch.\nThe authors designed model following the original Transformers as close as possible. The proposed model then called as Vision Transfomers (ViT).\nExperiments The authors released 3 variants of ViT; ViT-Base, ViT-Large, and ViT-Huge with different number of layers, hidden layers, MLP size, attention heads, and number of params. All of these are pretrained on large dataset such as ImageNet, ImageNet-21k, and JFT.\nIn the original paper, the author compared ViT with ResNet based models like BiT. The result shows ViT outperform ResNet based models while taking less computational resources to pretrain.\nThe following section will become technical part where we will use 🤗 Huggingface implementation of ViT to finetune our selected dataset.\n🤗 Huggingface in Action Now, let’s do interesting part. Here we will finetune ViT-Base using Shoe vs Sandal vs Boot dataset publicly available in Kaggle and examine its performance.\nFirst, lets load the dataset using 🤗 Datasets.\nfrom torch.utils.data import DataLoader from datasets import load_datasetdatasets = load_dataset('imagefolder', data_dir='../input/shoe-vs-sandal-vs-boot-dataset-15k-images/Shoe vs Sandal vs Boot Dataset')datasets_split = datasets['train'].train_test_split(test_size=.2, seed=42) datasets['train'] = datasets_split['train'] datasets['validation'] = datasets_split['test'] Lets examine some of our dataset\n# plot samples samples = datasets['train'].select(range(6)) pointer = 0 fig, ax = plt.subplots(2, 3, sharex=True, sharey=True, figsize=(10,6))for i in range(2): for j in range(3): ax[i,j].imshow(samples[pointer]['image']) ax[i,j].set_title(f\"{labels[samples[pointer]['label']]} ({samples[pointer]['label']})\") ax[i,j].axis('off') pointer+=1 plt.show() Few of our dataset looks like\nNext, as we already know, we need to transform our images into fixed-size patches and flatten it. We also need to add positional encoding and the classification token. Here we will use 🤗 Huggingface Feature Extractor module which do all mechanism for us!\nThis Feature Extractor is just like Tokenizer in NLP. Let’s now import the pretrained ViT and use it as Feature Extractor, then we will examine the outputs of processed image. Here we will use pretrained ViT with patch_size=16 and pretrained on ImageNet21K dataset with resolution 224x224.\nmodel_ckpt = 'google/vit-base-patch16-224-in21k' device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') extractor = ViTFeatureExtractor.from_pretrained(model_ckpt)extractor(samples[0]['image'], return_tensors='pt') Our extracted features looks like\nNote that our original image has white background, that’s why our extracted features having a lot of 1. value. Don’t worry, its normal, everything will be work :)\nLet’s proceed to the next step. Now we want to implement this feature extractor to the whole of our dataset. Generally, we could use .map() function from 🤗 Huggingface, but in this case it would be slow and time consuming. Instead, we will use .with_transform() function which will do transformation on the fly!\ndef batch_transform(examples): # take a list of PIL images and turn into pixel values inputs = extractor([x for x in examples['image']], return_tensors='pt') # add the labels in inputs['label'] = examples['label'] return inputstransformed_data = datasets.with_transform(batch_transform) OK, so far we’re good. Next, let’s define our data collator function and evaluation metrics.\n# data collator def collate_fn(examples): return { 'pixel_values': torch.stack([x['pixel_values'] for x in examples]), 'labels': torch.tensor([x['label'] for x in examples]) }# metrics metric = load_metric('accuracy') def compute_metrics(p): labels = p.label_ids preds = p.predictions.argmax(-1) acc = accuracy_score(labels, preds) f1 = f1_score(labels, preds, average='weighted') return { 'accuracy': acc, 'f1': f1 } Now, let’s load the model. Remember that we have 3 labels in our data, and we attach it as our model parameters, so we will have ViT with classification head output of 3.\nmodel = ViTForImageClassification.from_pretrained( model_ckpt, num_labels=len(labels), id2label={str(i): c for i, c in enumerate(labels)}, label2id={c: str(i) for i, c in enumerate(labels)} ) model = model.to(device) Let’s have some fun before we finetune our model! (This step is optional, if you want to jump into fine-tuning step, you can skip this section).\nI am quite interested to see ViT performance in zero-shot scenario. In case you are unfamiliar with zero-shot term, it just barely use pretrained model to predict our new images. Keep in mind that most of pretrained model are trained on large datasets, so in zero-shot scenario we want to take benefit from those large dataset for our model to identify features in another image that might haven’t see it before and then make a prediction. Let’s just see how it works in the code!\n# get our transformed dataset zero_loader = DataLoader(transformed_data['test'], batch_size=16) zero_pred = []# zero-shot prediction for batch in tqdm(zero_loader): with torch.no_grad(): logits = model(batch['pixel_values'].to(device)).logits pred = logits.argmax(-1).cpu().detach().tolist() zero_pred += [labels[i] for i in pred]zero_true = [labels[i] for i in datasets['test']['label']]# plot confusion matrix cm = confusion_matrix(zero_true, zero_pred, labels=labels) disp = ConfusionMatrixDisplay(cm, display_labels=labels) disp.plot() plt.show()# metrics print(f'Acc: {accuracy_score(zero_true, zero_pred):.3f}') print(f'F1: {f1_score(zero_true, zero_pred, average=\"weighted\"):.3f}') In short, we put our transformed data in DataLoader which going to be transformed on the fly. Then, for every batch, we pass our transformed data into our pretrained model. Next, we take the logits only from the model output. Remember that we have classification head with number of output 3. So, for each inferred image we will have 3 logits score. Among these 3 score, we will take the maximum one and return its index using .argmax(). Finally, we plot our confusion matrix and print the accuracy and F1 score.\nViT confusion matrix on zero-shot scenario\nSurprisingly, we got a unsatisfied metrics score with Accuracy: 0.329 and F1-Score: 0.307. OK, next let’s fine-tune our model for 3 epochs and test the performance again. Here, I used Kaggle environment to train model.\nbatch_size = 16 logging_steps = len(transformed_data['train']) // batch_sizetraining_args = TrainingArguments( output_dir='./kaggle/working/', per_device_train_batch_size=batch_size, per_device_eval_batch_size=batch_size, evaluation_strategy='epoch', save_strategy='epoch', num_train_epochs=3, fp16=True if torch.cuda.is_available() else False, logging_steps=logging_steps, learning_rate=1e-5, save_total_limit=2, remove_unused_columns=False, push_to_hub=False, load_best_model_at_end=True)trainer = Trainer( model=model, args=training_args, data_collator=collate_fn, compute_metrics=compute_metrics, train_dataset=transformed_data['train'], eval_dataset=transformed_data['validation'], tokenizer=extractor)trainer.train() The code above was responsible to train our model. Note that we used 🤗 Huggingface Trainer instead of write our own training loop. Next, lets examine our Loss, Accuracy, and F1 Score for each epochs. You can also specify WandB or Tensorboard in Trainer parameter report_to for better logging interface. (Honestly, here I am using wandb for logging purpose. But for simplicity, I skipped the explanation of wandb part)\nModel performances on each epochs\nImpressive, isn’t it? Our ViT model already got very high performance since the first epoch, and changing quite steadily! Finally, let’s test again on the test data and later we plot our model prediction on few of our test data.\n# inference on test data predictions = trainer.predict(transformed_data['test']) predictions.metrics # plot samples samples = datasets['test'].select(range(6)) pointer = 0fig, ax = plt.subplots(2, 3, sharex=True, sharey=True, figsize=(10,6)) for i in range(2): for j in range(3): ax[i,j].imshow(samples[pointer]['image']) ax[i,j].set_title(f\"A: {labels[samples[pointer]['label']]}nP: {labels[predictions.label_ids[pointer]]}\") ax[i,j].axis('off') pointer+=1plt.show() Here is our prediction scores on test data. Our finetuned model now has a very good performances compared to the one in zero-shot scenario. And among of 6 sampled test images, our model correctly predict all of them. Super! ✨\n{'test_loss': 0.04060511291027069, 'test_accuracy': 0.994, 'test_f1': 0.9939998484491527, 'test_runtime': 30.7084, 'test_samples_per_second': 97.693, 'test_steps_per_second': 6.122} Prediction result\nConclusion Finally, we reached the end of the article. To recap, we did quick review of the original paper of Vision Transformers (ViT). We also perform zero-shot and finetuning scenario to our pretrained model using publicly available Kaggle Shoe vs Sandals vs Boots dataset containing ~15K images. We examined that ViT performance on zero-shot scenario wasn’t so good, while after finetuning the performance boost up since the first epoch and changing steadily.\nIf you found this article is useful, please don’t forget to clap and follow me for more Data Science / Machine Learning contents. Also, if you found something wrong or interesting, please feel free to drop it in the comment or reach me out at Twitter or Linkedin.\nIn case you are interested to read more, follow our medium Data Folks Indonesia and don’t forget join us Jakarata AI Research on Discord!\nFull codes are available on my Github repository, feel free to check it 🤗.\nNB: If you are looking for deeper explanation especially if you want to reproduce the paper by yourself, you can check this amazing article by Aman Arora.\nReferences Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uszkoreit, J., \u0026 Houlsby, N. (2021). An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale. ICLR. Niki Parmar, Ashish Vaswani, Jakob Uszkoreit, Lukasz Kaiser, Noam Shazeer, Alexander Ku, and Dustin Tran. Image transformer. In ICML, 2018. Han Hu, Zheng Zhang, Zhenda Xie, and Stephen Lin. Local relation networks for image recognition. In ICCV, 2019. Prajit Ramachandran, Niki Parmar, Ashish Vaswani, Irwan Bello, Anselm Levskaya, and Jon Shlens. Stand-alone self-attention in vision models. In NeurIPS, 2019. Hengshuang Zhao, Jiaya Jia, and Vladlen Koltun. Exploring self-attention for image recognition. In CVPR, 2020. Han Hu, Jiayuan Gu, Zheng Zhang, Jifeng Dai, and Yichen Wei. Relation networks for object detection. In CVPR, 2018. Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, and Sergey Zagoruyko. End-to-end object detection with transformers. In ECCV, 2020. Let’s Get in Touch! Linkedin Twitter Github ",
+  "wordCount" : "1740",
+  "inLanguage": "en",
+  "image":"https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/https:/unsplash.com/photos/MAYsdoYpGuk/download?ixid=M3wxMjA3fDB8MXxhbGx8M3x8fHx8fDJ8fDE3MDM3ODgzODd8\u0026force=true\u0026w=640","datePublished": "2022-10-14T23:53:18+07:00",
+  "dateModified": "2022-10-14T23:53:18+07:00",
+  "author":{
+    "@type": "Person",
+    "name": "Affandy Fahrizain"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fahrizain",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fhrzn.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://fhrzn.github.io/" accesskey="h" title="Fahrizain (Alt + H)">
+                <img src="https://fhrzn.github.io/favicon.ico" alt="" aria-label="logo"
+                    height="30">Fahrizain</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Exploring Vision Transformers (ViT) with 🤗 Huggingface
+    </h1>
+    <div class="post-description">
+      An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Dosovitskiy et al., 2021)
+    </div>
+    <div class="post-meta"><span title='2022-10-14 23:53:18 +0700 WIB'>October 14, 2022</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1740 words&nbsp;·&nbsp;Affandy Fahrizain
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="https://unsplash.com/photos/MAYsdoYpGuk/download?ixid=M3wxMjA3fDB8MXxhbGx8M3x8fHx8fDJ8fDE3MDM3ODgzODd8&amp;force=true&amp;w=640" alt="Cover Post">
+        <p>Photo by <a href="https://unsplash.com/@alexlitvin?utm_source=medium&amp;utm_medium=referral">Alex Litvin</a> on <a href="https://unsplash.com/?utm_source=medium&amp;utm_medium=referral">Unsplash</a></p>
+</figure>
+  <div class="post-content"><p>Lately, I was working on a course project where we asked to review one of the modern DL papers from top latest conferences and make an experimental test with our own dataset. So, here I am thrilled to share with you about my exploration!</p>
+<h2 id="background">Background<a hidden class="anchor" aria-hidden="true" href="#background">#</a></h2>
+<p>As self-attention based model like Transformers has successfully become a <em>standard</em> in NLP area, it triggers researchers to adapt attention-based models in Computer Vision too. There were different evidences, such as combine CNN with self-attention and completely replace Convolutions. While this selected paper belongs to the latter aproach.</p>
+<p>The application of attention mechanism in images requires each pixel attends to every other pixel, which indeed requires expensive computation. Hence, several techniques have been applied such as self-attention only in local neighborhoods [1], using local multihead dot product self-attention blocks to completely replace convolutions [2][3][4], postprocessing CNN outputs using self- attention [5][6], etc. Although shown promising results, these techniques quite hard to be scaled and requires complex engineering to be implemented efficiently on hardware accelerators.</p>
+<p>On the other hand, Transformers model is based on MLP networks, it has more computational efficiency and scalability, making its possible to train big models with over 100B parameters.</p>
+<h2 id="methods">Methods<a hidden class="anchor" aria-hidden="true" href="#methods">#</a></h2>
+<p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*-HQPfbnebarylP543i58_Q.png" alt="ViT Architecture"  />
+
+<em>General architecture of ViT. Taken from the original paper (Dosovitskiy et al., 2021)</em></p>
+<p>The original Transformers model treat its input as sequences which very different approach with CNN, hence the inputted images need to be extracted into fixed-size patches and flattened. Similar to BERT [CLS] token, the so-called <em>classification token</em> will be added into the beginning of the sequences, which will serve as image representation and later will be fed into classification head. Finally, to retain the positional information of the sequences, positional embedding will be added to each patch.</p>
+<p>The authors designed model following the original Transformers as close as possible. The proposed model then called as Vision Transfomers (ViT).</p>
+<h2 id="experiments">Experiments<a hidden class="anchor" aria-hidden="true" href="#experiments">#</a></h2>
+<p>The authors released 3 variants of ViT; ViT-Base, ViT-Large, and ViT-Huge with different number of layers, hidden layers, MLP size, attention heads, and number of params. All of these are pretrained on large dataset such as ImageNet, ImageNet-21k, and JFT.</p>
+<p>In the original paper, the author compared ViT with ResNet based models like BiT. The result shows ViT outperform ResNet based models while taking less computational resources to pretrain.</p>
+<p>The following section will become technical part where we will use 🤗 Huggingface implementation of ViT to finetune our selected dataset.</p>
+<h2 id="-huggingface-in-action">🤗 Huggingface in Action<a hidden class="anchor" aria-hidden="true" href="#-huggingface-in-action">#</a></h2>
+<p>Now, let’s do interesting part. Here we will finetune ViT-Base using <a href="https://www.kaggle.com/datasets/hasibalmuzdadid/shoe-vs-sandal-vs-boot-dataset-15k-images">Shoe vs Sandal vs Boot dataset</a> publicly available in Kaggle and examine its performance.</p>
+<p>First, lets load the dataset using 🤗 Datasets.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#f92672">from</span> torch.utils.data <span style="color:#f92672">import</span> DataLoader  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datasets <span style="color:#f92672">import</span> load_datasetdatasets <span style="color:#f92672">=</span> load_dataset(<span style="color:#e6db74">&#39;imagefolder&#39;</span>, data_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;../input/shoe-vs-sandal-vs-boot-dataset-15k-images/Shoe vs Sandal vs Boot Dataset&#39;</span>)datasets_split <span style="color:#f92672">=</span> datasets[<span style="color:#e6db74">&#39;train&#39;</span>]<span style="color:#f92672">.</span>train_test_split(test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">.2</span>, seed<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)  
+</span></span><span style="display:flex;"><span>datasets[<span style="color:#e6db74">&#39;train&#39;</span>] <span style="color:#f92672">=</span> datasets_split[<span style="color:#e6db74">&#39;train&#39;</span>]  
+</span></span><span style="display:flex;"><span>datasets[<span style="color:#e6db74">&#39;validation&#39;</span>] <span style="color:#f92672">=</span> datasets_split[<span style="color:#e6db74">&#39;test&#39;</span>]
+</span></span></code></pre></div><p>Lets examine some of our dataset</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#75715e"># plot samples  </span>
+</span></span><span style="display:flex;"><span>samples <span style="color:#f92672">=</span> datasets[<span style="color:#e6db74">&#39;train&#39;</span>]<span style="color:#f92672">.</span>select(range(<span style="color:#ae81ff">6</span>))  
+</span></span><span style="display:flex;"><span>pointer <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
+</span></span><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, sharex<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, sharey<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">6</span>))<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>):  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):  
+</span></span><span style="display:flex;"><span>        ax[i,j]<span style="color:#f92672">.</span>imshow(samples[pointer][<span style="color:#e6db74">&#39;image&#39;</span>])  
+</span></span><span style="display:flex;"><span>        ax[i,j]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>labels[samples[pointer][<span style="color:#e6db74">&#39;label&#39;</span>]]<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>samples[pointer][<span style="color:#e6db74">&#39;label&#39;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span>)  
+</span></span><span style="display:flex;"><span>        ax[i,j]<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;off&#39;</span>)  
+</span></span><span style="display:flex;"><span>        pointer<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*c4RvCzuh84nsUw5kn28PqA.png" alt="Dataset sneak peek"  />
+
+<em>Few of our dataset looks like</em></p>
+<p>Next, as we already know, we need to transform our images into fixed-size patches and flatten it. We also need to add positional encoding and the <em>classification token.</em> Here we will use 🤗 Huggingface Feature Extractor module which do all mechanism for us!</p>
+<p>This Feature Extractor is just like Tokenizer in NLP. Let’s now import the pretrained ViT and use it as Feature Extractor, then we will examine the outputs of processed image. Here we will use pretrained ViT with <code>patch_size=16</code> and pretrained on ImageNet21K dataset with resolution 224x224.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>model_ckpt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;google/vit-base-patch16-224-in21k&#39;</span>  
+</span></span><span style="display:flex;"><span>device <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74">&#39;cuda&#39;</span> <span style="color:#66d9ef">if</span> torch<span style="color:#f92672">.</span>cuda<span style="color:#f92672">.</span>is_available() <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;cpu&#39;</span>)  
+</span></span><span style="display:flex;"><span>extractor <span style="color:#f92672">=</span> ViTFeatureExtractor<span style="color:#f92672">.</span>from_pretrained(model_ckpt)extractor(samples[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;image&#39;</span>], return_tensors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;pt&#39;</span>)
+</span></span></code></pre></div><p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*zrS0kcR2kBmOtLpFCuHa2Q.png" alt=""  />
+
+<em>Our extracted features looks like</em></p>
+<p>Note that our original image has white background, that’s why our extracted features having a lot of <code>1.</code> value. Don’t worry, its normal, everything will be work :)</p>
+<p>Let’s proceed to the next step. Now we want to implement this feature extractor to the whole of our dataset. Generally, we could use <code>.map()</code> function from 🤗 Huggingface, but in this case it would be slow and time consuming. Instead, we will use <code>.with_transform()</code> function which will do transformation on the fly!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">batch_transform</span>(examples):  
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># take a list of PIL images and turn into pixel values  </span>
+</span></span><span style="display:flex;"><span>    inputs <span style="color:#f92672">=</span> extractor([x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> examples[<span style="color:#e6db74">&#39;image&#39;</span>]], return_tensors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;pt&#39;</span>)  
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># add the labels in  </span>
+</span></span><span style="display:flex;"><span>    inputs[<span style="color:#e6db74">&#39;label&#39;</span>] <span style="color:#f92672">=</span> examples[<span style="color:#e6db74">&#39;label&#39;</span>]  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> inputstransformed_data <span style="color:#f92672">=</span> datasets<span style="color:#f92672">.</span>with_transform(batch_transform)
+</span></span></code></pre></div><p>OK, so far we’re good. Next, let’s define our data collator function and evaluation metrics.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#75715e"># data collator  </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">collate_fn</span>(examples):  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {  
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;pixel_values&#39;</span>: torch<span style="color:#f92672">.</span>stack([x[<span style="color:#e6db74">&#39;pixel_values&#39;</span>] <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> examples]),  
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;labels&#39;</span>: torch<span style="color:#f92672">.</span>tensor([x[<span style="color:#e6db74">&#39;label&#39;</span>] <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> examples])  
+</span></span><span style="display:flex;"><span>    }<span style="color:#75715e"># metrics  </span>
+</span></span><span style="display:flex;"><span>metric <span style="color:#f92672">=</span> load_metric(<span style="color:#e6db74">&#39;accuracy&#39;</span>)  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_metrics</span>(p):  
+</span></span><span style="display:flex;"><span>    labels <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span>label_ids  
+</span></span><span style="display:flex;"><span>    preds <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span>predictions<span style="color:#f92672">.</span>argmax(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
+</span></span><span style="display:flex;"><span>    acc <span style="color:#f92672">=</span> accuracy_score(labels, preds)  
+</span></span><span style="display:flex;"><span>    f1 <span style="color:#f92672">=</span> f1_score(labels, preds, average<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;weighted&#39;</span>)  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {  
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;accuracy&#39;</span>: acc,  
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;f1&#39;</span>: f1  
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Now, let’s load the model. Remember that we have 3 labels in our data, and we attach it as our model parameters, so we will have ViT with classification head output of 3.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>model <span style="color:#f92672">=</span> ViTForImageClassification<span style="color:#f92672">.</span>from_pretrained(  
+</span></span><span style="display:flex;"><span>    model_ckpt,  
+</span></span><span style="display:flex;"><span>    num_labels<span style="color:#f92672">=</span>len(labels),  
+</span></span><span style="display:flex;"><span>    id2label<span style="color:#f92672">=</span>{str(i): c <span style="color:#66d9ef">for</span> i, c <span style="color:#f92672">in</span> enumerate(labels)},  
+</span></span><span style="display:flex;"><span>    label2id<span style="color:#f92672">=</span>{c: str(i) <span style="color:#66d9ef">for</span> i, c <span style="color:#f92672">in</span> enumerate(labels)}  
+</span></span><span style="display:flex;"><span>)  
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>to(device)
+</span></span></code></pre></div><p>Let’s have some fun before we finetune our model! (This step is optional, if you want to jump into fine-tuning step, you can skip this section).</p>
+<p>I am quite interested to see ViT performance in zero-shot scenario. In case you are unfamiliar with <em>zero-shot</em> term, it just barely use pretrained model to predict our new images. Keep in mind that most of pretrained model are trained on large datasets, so in <em>zero-shot</em> scenario we want to take benefit from those large dataset for our model to identify features in another image that might haven’t see it before and then make a prediction. Let’s just see how it works in the code!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#75715e"># get our transformed dataset  </span>
+</span></span><span style="display:flex;"><span>zero_loader <span style="color:#f92672">=</span> DataLoader(transformed_data[<span style="color:#e6db74">&#39;test&#39;</span>], batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>)  
+</span></span><span style="display:flex;"><span>zero_pred <span style="color:#f92672">=</span> []<span style="color:#75715e"># zero-shot prediction  </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> batch <span style="color:#f92672">in</span> tqdm(zero_loader):  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> torch<span style="color:#f92672">.</span>no_grad():  
+</span></span><span style="display:flex;"><span>        logits <span style="color:#f92672">=</span> model(batch[<span style="color:#e6db74">&#39;pixel_values&#39;</span>]<span style="color:#f92672">.</span>to(device))<span style="color:#f92672">.</span>logits  
+</span></span><span style="display:flex;"><span>        pred <span style="color:#f92672">=</span> logits<span style="color:#f92672">.</span>argmax(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>cpu()<span style="color:#f92672">.</span>detach()<span style="color:#f92672">.</span>tolist()  
+</span></span><span style="display:flex;"><span>        zero_pred <span style="color:#f92672">+=</span> [labels[i] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> pred]zero_true <span style="color:#f92672">=</span> [labels[i] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> datasets[<span style="color:#e6db74">&#39;test&#39;</span>][<span style="color:#e6db74">&#39;label&#39;</span>]]<span style="color:#75715e"># plot confusion matrix  </span>
+</span></span><span style="display:flex;"><span>cm <span style="color:#f92672">=</span> confusion_matrix(zero_true, zero_pred, labels<span style="color:#f92672">=</span>labels)  
+</span></span><span style="display:flex;"><span>disp <span style="color:#f92672">=</span> ConfusionMatrixDisplay(cm, display_labels<span style="color:#f92672">=</span>labels)  
+</span></span><span style="display:flex;"><span>disp<span style="color:#f92672">.</span>plot()  
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()<span style="color:#75715e"># metrics  </span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Acc: </span><span style="color:#e6db74">{</span>accuracy_score(zero_true, zero_pred)<span style="color:#e6db74">:</span><span style="color:#e6db74">.3f</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)  
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;F1: </span><span style="color:#e6db74">{</span>f1_score(zero_true, zero_pred, average<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weighted&#34;</span>)<span style="color:#e6db74">:</span><span style="color:#e6db74">.3f</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span></code></pre></div><p>In short, we put our transformed data in DataLoader which going to be transformed on the fly. Then, for every batch, we pass our transformed data into our pretrained model. Next, we take the logits only from the model output. Remember that we have classification head with number of output 3. So, for each inferred image we will have 3 logits score. Among these 3 score, we will take the maximum one and return its index using <code>.argmax()</code>. Finally, we plot our confusion matrix and print the accuracy and F1 score.</p>
+<p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*o0KeIxC7nfv3-v43EBqPDA.png" alt="confusion matrix"  />
+
+<em>ViT confusion matrix on zero-shot scenario</em></p>
+<p>Surprisingly, we got a unsatisfied metrics score with <code>Accuracy: 0.329</code> and <code>F1-Score: 0.307</code>. OK, next let’s fine-tune our model for 3 epochs and test the performance again. Here, I used Kaggle environment to train model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>batch_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>  
+</span></span><span style="display:flex;"><span>logging_steps <span style="color:#f92672">=</span> len(transformed_data[<span style="color:#e6db74">&#39;train&#39;</span>]) <span style="color:#f92672">//</span> batch_sizetraining_args <span style="color:#f92672">=</span> TrainingArguments(  
+</span></span><span style="display:flex;"><span>    output_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;./kaggle/working/&#39;</span>,  
+</span></span><span style="display:flex;"><span>    per_device_train_batch_size<span style="color:#f92672">=</span>batch_size,  
+</span></span><span style="display:flex;"><span>    per_device_eval_batch_size<span style="color:#f92672">=</span>batch_size,  
+</span></span><span style="display:flex;"><span>    evaluation_strategy<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;epoch&#39;</span>,  
+</span></span><span style="display:flex;"><span>    save_strategy<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;epoch&#39;</span>,  
+</span></span><span style="display:flex;"><span>    num_train_epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>,  
+</span></span><span style="display:flex;"><span>    fp16<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span> <span style="color:#66d9ef">if</span> torch<span style="color:#f92672">.</span>cuda<span style="color:#f92672">.</span>is_available() <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">False</span>,  
+</span></span><span style="display:flex;"><span>    logging_steps<span style="color:#f92672">=</span>logging_steps,  
+</span></span><span style="display:flex;"><span>    learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">1e-5</span>,  
+</span></span><span style="display:flex;"><span>    save_total_limit<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,  
+</span></span><span style="display:flex;"><span>    remove_unused_columns<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,  
+</span></span><span style="display:flex;"><span>    push_to_hub<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,  
+</span></span><span style="display:flex;"><span>    load_best_model_at_end<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)trainer <span style="color:#f92672">=</span> Trainer(  
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span>model,  
+</span></span><span style="display:flex;"><span>    args<span style="color:#f92672">=</span>training_args,  
+</span></span><span style="display:flex;"><span>    data_collator<span style="color:#f92672">=</span>collate_fn,  
+</span></span><span style="display:flex;"><span>    compute_metrics<span style="color:#f92672">=</span>compute_metrics,  
+</span></span><span style="display:flex;"><span>    train_dataset<span style="color:#f92672">=</span>transformed_data[<span style="color:#e6db74">&#39;train&#39;</span>],  
+</span></span><span style="display:flex;"><span>    eval_dataset<span style="color:#f92672">=</span>transformed_data[<span style="color:#e6db74">&#39;validation&#39;</span>],  
+</span></span><span style="display:flex;"><span>    tokenizer<span style="color:#f92672">=</span>extractor)trainer<span style="color:#f92672">.</span>train()
+</span></span></code></pre></div><p>The code above was responsible to train our model. Note that we used 🤗 Huggingface Trainer instead of write our own training loop. Next, lets examine our Loss, Accuracy, and F1 Score for each epochs. You can also specify WandB or Tensorboard in Trainer parameter <code>report_to</code> for better logging interface. (Honestly, here I am using wandb for logging purpose. But for simplicity, I skipped the explanation of wandb part)</p>
+<p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*P_yuwU4yPELwlUV8Xb1EcA.png" alt="model performances"  />
+
+<em>Model performances on each epochs</em></p>
+<p>Impressive, isn’t it? Our ViT model already got very high performance since the first epoch, and changing quite steadily! Finally, let’s test again on the test data and later we plot our model prediction on few of our test data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#75715e"># inference on test data  </span>
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> trainer<span style="color:#f92672">.</span>predict(transformed_data[<span style="color:#e6db74">&#39;test&#39;</span>])  
+</span></span><span style="display:flex;"><span>predictions<span style="color:#f92672">.</span>metrics  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plot samples  </span>
+</span></span><span style="display:flex;"><span>samples <span style="color:#f92672">=</span> datasets[<span style="color:#e6db74">&#39;test&#39;</span>]<span style="color:#f92672">.</span>select(range(<span style="color:#ae81ff">6</span>))  
+</span></span><span style="display:flex;"><span>pointer <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, sharex<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, sharey<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">6</span>))  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>):  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):  
+</span></span><span style="display:flex;"><span>        ax[i,j]<span style="color:#f92672">.</span>imshow(samples[pointer][<span style="color:#e6db74">&#39;image&#39;</span>])  
+</span></span><span style="display:flex;"><span>        ax[i,j]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;A: </span><span style="color:#e6db74">{</span>labels[samples[pointer][<span style="color:#e6db74">&#39;label&#39;</span>]]<span style="color:#e6db74">}</span><span style="color:#e6db74">nP: </span><span style="color:#e6db74">{</span>labels[predictions<span style="color:#f92672">.</span>label_ids[pointer]]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)  
+</span></span><span style="display:flex;"><span>        ax[i,j]<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;off&#39;</span>)  
+</span></span><span style="display:flex;"><span>        pointer<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p>Here is our prediction scores on test data. Our finetuned model now has a very good performances compared to the one in <em>zero-shot</em> scenario. And among of 6 sampled test images, our model correctly predict all of them. Super! ✨</p>
+<pre tabindex="0"><code>{&#39;test_loss&#39;: 0.04060511291027069,    
+ &#39;test_accuracy&#39;: 0.994,    
+ &#39;test_f1&#39;: 0.9939998484491527,    
+ &#39;test_runtime&#39;: 30.7084,    
+ &#39;test_samples_per_second&#39;: 97.693,    
+ &#39;test_steps_per_second&#39;: 6.122}
+</code></pre><p><img loading="lazy" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*FCx445gVXRtjQ69YXVECbQ.png" alt="prediction result"  />
+
+<em>Prediction result</em></p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>Finally, we reached the end of the article. To recap, we did quick review of the original paper of Vision Transformers (ViT). We also perform <em>zero-shot</em> and finetuning scenario to our pretrained model using publicly available Kaggle Shoe vs Sandals vs Boots dataset containing ~15K images. We examined that ViT performance on <em>zero-shot</em> scenario wasn’t so good, while after finetuning the performance boost up since the first epoch and changing steadily.</p>
+<p>If you found this article is useful, please don’t forget to clap and follow me for more Data Science / Machine Learning contents. Also, if you found something wrong or interesting, please feel free to drop it in the comment or reach me out at Twitter or Linkedin.</p>
+<p>In case you are interested to read more, follow our medium <a href="https://medium.com/data-folks-indonesia">Data Folks Indonesia</a> and don’t forget join us <a href="https://discord.com/invite/6v28dq8dRE">Jakarata AI Research on Discord</a>!</p>
+<p>Full codes are available on my <a href="https://github.com/fhrzn/sml-tech/blob/main/Tasks/Course%20Project/vit-shoe-vs-sandals.ipynb">Github repository</a>, feel free to check it 🤗.</p>
+<p><em>NB: If you are looking for deeper explanation especially if you want to reproduce the paper by yourself, you can check this</em> <a href="https://amaarora.github.io/2021/01/18/ViT.html"><em>amazing article by Aman Arora</em></a><em>.</em></p>
+<hr>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ol>
+<li>Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uszkoreit, J., &amp; Houlsby, N. (2021). An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale. ICLR.</li>
+<li>Niki Parmar, Ashish Vaswani, Jakob Uszkoreit, Lukasz Kaiser, Noam Shazeer, Alexander Ku, and Dustin Tran. Image transformer. In <em>ICML</em>, 2018.</li>
+<li>Han Hu, Zheng Zhang, Zhenda Xie, and Stephen Lin. Local relation networks for image recognition. In <em>ICCV</em>, 2019.</li>
+<li>Prajit Ramachandran, Niki Parmar, Ashish Vaswani, Irwan Bello, Anselm Levskaya, and Jon Shlens. Stand-alone self-attention in vision models. In <em>NeurIPS</em>, 2019.</li>
+<li>Hengshuang Zhao, Jiaya Jia, and Vladlen Koltun. Exploring self-attention for image recognition. In <em>CVPR</em>, 2020.</li>
+<li>Han Hu, Jiayuan Gu, Zheng Zhang, Jifeng Dai, and Yichen Wei. Relation networks for object detection. In <em>CVPR</em>, 2018.</li>
+<li>Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, and Sergey Zagoruyko. End-to-end object detection with transformers. In <em>ECCV</em>, 2020.</li>
+</ol>
+<h2 id="lets-get-in-touch">Let’s Get in Touch!<a hidden class="anchor" aria-hidden="true" href="#lets-get-in-touch">#</a></h2>
+<ul>
+<li><a href="https://www.linkedin.com/in/fahrizainn/">Linkedin</a></li>
+<li><a href="https://twitter.com/fhrzn_">Twitter</a></li>
+<li><a href="https://github.com/fhrzn">Github</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://fhrzn.github.io/tags/deeplearning/">deeplearning</a></li>
+      <li><a href="https://fhrzn.github.io/tags/computervision/">computervision</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://fhrzn.github.io/posts/autoencoders-your-first-step-into-generative-ai/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Autoencoders: Your First Step into Generative AI</span>
+  </a>
+  <a class="next" href="https://fhrzn.github.io/posts/quick-export-your-jupyter-notebook-to-pdf/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Quick Export your Jupyter Notebook to PDF</span>
+  </a>
+</nav>
+
+  </footer><script src="https://giscus.app/client.js"
+        data-repo="fhrzn/fhrzn.github.io"
+        data-repo-id="R_kgDOK-oOOw"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOK-oOO84CcI9D"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://fhrzn.github.io/">Fahrizain</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
