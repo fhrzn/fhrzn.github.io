@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Fahrizain&#39;s Site</title>
+    <title>Tags on Fahrizain</title>
     <link>https://fhrzn.github.io/tags/</link>
-    <description>Recent content in Tags on Fahrizain&#39;s Site</description>
+    <description>Recent content in Tags on Fahrizain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Oct 2022 23:53:18 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jan 2024 21:00:00 +0700</lastBuildDate>
     <atom:link href="https://fhrzn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>computervision</title>
-      <link>https://fhrzn.github.io/tags/computervision/</link>
-      <pubDate>Fri, 14 Oct 2022 23:53:18 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/computervision/</guid>
+      <title>autoencoder</title>
+      <link>https://fhrzn.github.io/tags/autoencoder/</link>
+      <pubDate>Tue, 02 Jan 2024 21:00:00 +0700</pubDate>
+      <guid>https://fhrzn.github.io/tags/autoencoder/</guid>
       <description></description>
     </item>
     <item>
       <title>deeplearning</title>
       <link>https://fhrzn.github.io/tags/deeplearning/</link>
-      <pubDate>Fri, 14 Oct 2022 23:53:18 +0700</pubDate>
+      <pubDate>Tue, 02 Jan 2024 21:00:00 +0700</pubDate>
       <guid>https://fhrzn.github.io/tags/deeplearning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>representation</title>
+      <link>https://fhrzn.github.io/tags/representation/</link>
+      <pubDate>Tue, 02 Jan 2024 21:00:00 +0700</pubDate>
+      <guid>https://fhrzn.github.io/tags/representation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>computervision</title>
+      <link>https://fhrzn.github.io/tags/computervision/</link>
+      <pubDate>Fri, 14 Oct 2022 23:53:18 +0700</pubDate>
+      <guid>https://fhrzn.github.io/tags/computervision/</guid>
       <description></description>
     </item>
     <item>

@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Fahrizain&#39;s Site</title>
+    <title>Fahrizain</title>
     <link>https://fhrzn.github.io/</link>
-    <description>Recent content on Fahrizain&#39;s Site</description>
+    <description>Recent content on Fahrizain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Oct 2022 23:53:18 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jan 2024 21:00:00 +0700</lastBuildDate>
     <atom:link href="https://fhrzn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Autoencoders: Your First Step into Generative AI</title>
+      <link>https://fhrzn.github.io/posts/autoencoders-your-first-step-into-generative-ai/</link>
+      <pubDate>Tue, 02 Jan 2024 21:00:00 +0700</pubDate>
+      <guid>https://fhrzn.github.io/posts/autoencoders-your-first-step-into-generative-ai/</guid>
+      <description>Generally, there are two popular basic variant of Generative AI: Autoencoders network and Generative Adversarial Network (GAN). In this series, we will discover the former one and leave the latter in another one.</description>
+    </item>
     <item>
       <title>Exploring Vision Transformers (ViT) with 🤗 Huggingface</title>
       <link>https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/</link>
