@@ -1,10 +1,14 @@
 baseURL: 'https://fhrzn.github.io/'
 languageCode: en-us
 paginate: 10
-title: Fahrizain
+title: Fahrizen
 theme: "PaperMod"
 
 publishDir: "docs"
+
+minify:
+  disableXML: true
+  minifyOutput: true
 
 params:
     ShowReadingTime: true
@@ -14,6 +18,12 @@ params:
     ShowCodeCopyButtons: true
     ShowWordCount: true
     ShowRssButtonInSectionTermList: true
+
+    # env
+    env: production
+
+    # analytics
+    GoogleAnalyticsID: G-27DEESLMGL
 
     author: "Affandy Fahrizain"
     comments: true
@@ -26,9 +36,27 @@ params:
     meta:
       favicon: true
 
+    assets:
+      disableHLJS: true
+      favicon: "favicon.ico"
+      favicon16x16: "favicon-16x16.png"
+      favicon32x32: "favicon-32x32.png"
+      apple_touch_icon: "apple-touch-icon.png"
+
+    
+    pygmentsUseClasses: true
+    markup:
+      highlight:
+        # anchorLineNos: true
+        codeFences: true
+        guessSyntax: true
+        lineNos: true
+        # noClasses: false
+        style: catppuccin-frappe
+
 
     homeInfoParams:
-      Title: "Hey, I’m Fahrizain \U0001F44B"
+      Title: "Hey, I’m Fahrizen \U0001F44B"
       Content: I'm a passionate AI & Data Engineer who currently exploring NLP and Speech Recognition at Kata.ai and Jakarta AI Research. Always up for chats about software, data, and AI/ML. Let's connect! 🚀
     socialIcons:
     - name: twitter
