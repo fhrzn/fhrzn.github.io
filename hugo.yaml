@@ -54,6 +54,10 @@ params:
         # noClasses: false
         style: catppuccin-frappe
 
+    social:
+      twitter: fhrzn_
+      linkedin: Affandy Fahrizain
+
 
     homeInfoParams:
       Title: "Hey, I’m Fahrizen \U0001F44B"
