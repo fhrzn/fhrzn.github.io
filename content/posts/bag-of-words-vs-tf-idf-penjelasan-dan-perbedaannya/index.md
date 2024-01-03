@@ -9,7 +9,7 @@ hideSummary: false
 ShowReadingTime: true
 ShowWordCount: true
 cover:
-    image: "images/cover.jpg" # image path/url
+    image: "cover.jpg" # image path/url
     alt: "Cover Post" # alt text
     caption: "Photo by [Alfons Morales](https://unsplash.com/@alfonsmc10) on [Unsplash](https://unsplash.com/photos/YLSwjSy7stw)" # display caption under cover
     relative: true # when using page bundles set this to true

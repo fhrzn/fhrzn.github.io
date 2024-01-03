@@ -10,7 +10,7 @@ ShowReadingTime: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 cover:
-    image: "images/cover.jpg" # image path/url
+    image: "cover.jpg" # image path/url
     alt: "Cover Post" # alt text
     caption: "Photo by [Alex Litvin](https://unsplash.com/@alexlitvin?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)" # display caption under cover
     relative: true # when using page bundles set this to true

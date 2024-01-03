@@ -8,10 +8,9 @@ disableShare: true
 hideSummary: false
 ShowReadingTime: true
 ShowWordCount: true
-twitter:
-    images:
-        - tw-cards.jpg
-        - images/cover.jpg
+images:
+    - tw-cards.jpg
+    - cover.jpg
 cover:
     image: "cover.jpg" # image path/url
     alt: "Cover Post" # alt text

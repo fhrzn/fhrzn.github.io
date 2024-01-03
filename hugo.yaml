@@ -32,7 +32,10 @@ params:
     author: "Affandy Fahrizain"
     comments: true
     label:
-      icon: "favicon.ico"
+      icon: "favicon-32x32.png"
+
+    images:
+    - android-chrome-512x512.png
 
     cover:
       hiddenInList: true # hide on list pages and home
