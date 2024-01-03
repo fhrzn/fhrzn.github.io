@@ -9,11 +9,13 @@ hideSummary: false
 ShowReadingTime: true
 ShowWordCount: true
 cover:
-    image: "https://unsplash.com/photos/zCevd81eJDU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTR8fGFyY2hpdGVjdHVyZSUyMGV1cm9wZXxlbnwwfDB8fHwxNzA0MjA0NjU1fDA&force=true&w=640" # image path/url
+    image: "images/cover.jpg" # image path/url
     alt: "Cover Post" # alt text
     caption: "Photo by [Alexandre Perotto](https://unsplash.com/@perotto) on [Unsplash](https://unsplash.com/photos/low-angle-photography-of-building-zCevd81eJDU)" # display caption under cover
     relative: true # when using page bundles set this to true
 math: katex
+keywords: ["deeplearning", "generative ai", "autoencoder", "data compress"]
+summary: "Generally, there are two popular basic variant of Generative AI: Autoencoders network and Generative Adversarial Network (GAN). In this series, we will discover the former one and leave the latter in another one."
 ---
 
 

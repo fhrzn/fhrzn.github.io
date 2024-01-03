@@ -10,10 +10,12 @@ ShowReadingTime: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 cover:
-    image: "https://unsplash.com/photos/MAYsdoYpGuk/download?ixid=M3wxMjA3fDB8MXxhbGx8M3x8fHx8fDJ8fDE3MDM3ODgzODd8&force=true&w=640" # image path/url
+    image: "images/cover.jpg" # image path/url
     alt: "Cover Post" # alt text
     caption: "Photo by [Alex Litvin](https://unsplash.com/@alexlitvin?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)" # display caption under cover
     relative: true # when using page bundles set this to true
+keywords: ["deeplearing", "computer vision", "transformers", "vision transformers"]
+summary: "Lately, I was working on a course project where we asked to review one of the modern DL papers from top latest conferences and make an experimental test with our own dataset. So, here I am thrilled to share with you about my exploration!"
 ---
 
 Lately, I was working on a course project where we asked to review one of the modern DL papers from top latest conferences and make an experimental test with our own dataset. So, here I am thrilled to share with you about my exploration!

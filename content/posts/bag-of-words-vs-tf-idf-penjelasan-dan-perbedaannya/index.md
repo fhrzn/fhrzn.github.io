@@ -9,10 +9,12 @@ hideSummary: false
 ShowReadingTime: true
 ShowWordCount: true
 cover:
-    image: "https://unsplash.com/photos/PyUXxFrYweY/download?ixid=M3wxMjA3fDB8MXxhbGx8OHx8fHx8fDJ8fDE3MDM3ODYyMzF8&force=true&w=640" # image path/url
+    image: "images/cover.jpg" # image path/url
     alt: "Cover Post" # alt text
     caption: "Photo by [Alfons Morales](https://unsplash.com/@alfonsmc10) on [Unsplash](https://unsplash.com/photos/YLSwjSy7stw)" # display caption under cover
     relative: true # when using page bundles set this to true
+keywords: ["text processing", "preprocessing", "tfidf", "bag of words"]
+summary: "Ketika kita berhubungan dengan data teks seperti klasifikasi teks misalnya, kita tentunya harus melakukan transformasi data teks menjadi sekumpulan angka (vektor) terlebih dahulu sebelum melakukan modelling. Nah, 2 metode yang cukup populer diantaranya adalah Bag of Words dan TF-IDF. Mari kita bahas bagaimana mereka bekerja serta apa perbedaannya!"
 ---
 
 > Ketika kita berhubungan dengan data teks seperti klasifikasi teks misalnya, kita tentunya harus melakukan transformasi data teks menjadi sekumpulan angka (vektor) terlebih dahulu sebelum melakukan modelling. Nah, 2 metode yang cukup populer diantaranya adalah Bag of Words dan TF-IDF. Mari kita bahas bagaimana mereka bekerja serta apa perbedaannya!

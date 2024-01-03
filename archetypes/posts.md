@@ -13,4 +13,7 @@ cover:
     alt: "<alt text>" # alt text
     caption: "<text>" # display caption under cover
     relative: true # when using page bundles set this to true
+math: katex
+keywords: []
+summary: ""
 ---

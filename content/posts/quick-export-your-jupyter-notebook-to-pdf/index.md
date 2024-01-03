@@ -9,10 +9,12 @@ hideSummary: false
 ShowReadingTime: true
 ShowWordCount: true
 cover:
-    image: "https://unsplash.com/photos/6EnTPvPPL6I/download?ixid=M3wxMjA3fDB8MXxhbGx8MzV8fHx8fHwyfHwxNzAzNzg3NTY2fA&force=true&w=640" # image path/url
+    image: "images/cover.jpg" # image path/url
     alt: "Cover Post" # alt text
     caption: "Photo by [Isaac Smith](https://unsplash.com/@isaacmsmith?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)" # display caption under cover
     relative: true # when using page bundles set this to true
+keywords: ["export", "jupyter notebook", "tips", "nbviewer"]
+summary: "Sometimes when we are applying for jobs, they ask us to send our portfolio. But instead of sharing your Jupyter Notebook — which they might won’t read it as it requires more effort to open — what if I tell you there are some way to simply export your beloved notebook to PDFs?"
 ---
 
 Sometimes when we are applying for jobs, they ask us to send our portfolio. But instead of sharing your Jupyter Notebook — which they might won’t read it as it requires more effort to open — what if I tell you there are some way to simply export your beloved notebook to PDFs?
