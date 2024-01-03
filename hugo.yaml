@@ -10,6 +10,10 @@ minify:
   disableXML: true
   minifyOutput: true
 
+buildDrafts: false
+buildFuture: true
+buildExpired: true
+
 params:
     ShowReadingTime: true
     ShowShareButtons: true
@@ -32,6 +36,19 @@ params:
 
     cover:
       hiddenInList: true # hide on list pages and home
+
+    frontmatter:
+      date:
+        - publishDate
+        - :filename
+        - date
+        - :fileModTime
+      publishDate:
+        - publishDate
+        - :filename
+        - date
+        - :fileModTime
+        
 
     meta:
       favicon: true
@@ -63,12 +80,18 @@ params:
       Title: "Hey, I’m Fahrizen \U0001F44B"
       Content: I'm a passionate AI & Data Engineer who currently exploring NLP and Speech Recognition at Kata.ai and Jakarta AI Research. Always up for chats about software, data, and AI/ML. Let's connect! 🚀
     socialIcons:
-    - name: twitter
-      url: https://twitter.com/fhrzn_
+    - name: email
+      url: mailto:affahrizain@gmail.com
+    - name: linkedin
+      url: https://www.linkedin.com/in/fahrizainn
     - name: github
       url: https://github.com/fhrzn
-    - name: linkedin
-      url: https://www.linkedin.com/in/fahrizainn/
+    - name: twitter
+      url: https://twitter.com/fhrzn_
+    - name: youtube
+      url: https://www.youtube.com/@affahrizain
+    - name: medium
+      url: https://medium.com/@fahrizain
 
     # profile-mode
     profileMode:
