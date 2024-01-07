@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Jan 2024 21:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jan 2024 19:19:52 +0700</lastBuildDate>
     <atom:link href="https://fhrzn.github.io/tags/autoencoder/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Restore your Noisy Image Using Autoencoders</title>
+      <link>https://fhrzn.github.io/posts/restore-your-noisy-image-using-autoencoders/</link>
+      <pubDate>Sun, 07 Jan 2024 19:19:52 +0700</pubDate>
+      <guid>https://fhrzn.github.io/posts/restore-your-noisy-image-using-autoencoders/</guid>
+      <description>Autoencoder network designed to learn data representation using its bottleneck network architecture. Now, we will discover autoencoder use case for image restoration.</description>
+    </item>
     <item>
       <title>Autoencoders: Your First Step into Generative AI</title>
       <link>https://fhrzn.github.io/posts/autoencoders-your-first-step-into-generative-ai/</link>
