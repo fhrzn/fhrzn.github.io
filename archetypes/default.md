@@ -1,6 +1,6 @@
 ---
-title: 'Restore Your Noisy Image Using Autoencoders'
-date: 2024-01-06T15:19:52+07:00
+title: '{{ replace .File.ContentBaseName "-" " " | title }}'
+date: {{ .Date }}
 tags: []
 draft: true
 description: ""

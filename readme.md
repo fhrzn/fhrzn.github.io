@@ -8,6 +8,12 @@
 5. Deploy! 🚀
 
 
+## How to Create New Page
+Run command:
+```bash
+hugo new content <path>/<filename>.md
+```
+
 ## How to Run
 Run command:
 ```bash
