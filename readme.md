@@ -22,4 +22,4 @@ hugo server
 And it will start in the following path:
 ```bash
 http://localhost:1313/
-```
+``` 
