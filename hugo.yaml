@@ -1,7 +1,7 @@
 baseURL: 'https://fhrzn.github.io/'
 languageCode: en-us
 paginate: 10
-title: Fahrizen
+title: fahrizain
 theme: "PaperMod"
 
 publishDir: "docs"
@@ -80,7 +80,7 @@ params:
 
 
     homeInfoParams:
-      Title: "Hey, I’m Fahrizen \U0001F44B"
+      Title: "Hello! \U0001F44B"
       Content: I'm a passionate AI & Data Engineer who currently exploring NLP and Speech Recognition at Kata.ai and Jakarta AI Research. Always up for chats about software, data, and AI/ML. Let's connect! 🚀
     socialIcons:
     - name: email

@@ -13,6 +13,10 @@ Run command:
 ```bash
 hugo new content <path>/<filename>.md
 ```
+OR
+```bash
+hugo new --kind posts <subfolder>/<page-name.md>
+```
 
 ## How to Run
 Run command:
