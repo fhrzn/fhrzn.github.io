@@ -1,7 +1,7 @@
 ---
 # title: 'Build an AI Chatbot with OpenRouter and Langchain'
 title: 'Building Conversational AI with LangChain: Techniques for Context Retention in Chatbots'
-date: 2024-05-26T00:34:59+07:00
+date: 2024-06-01T20:00:00+07:00
 tags: ["chatbot", "conversational ai", "context aware", "langchain", "rag"]
 draft: false
 description: ""
