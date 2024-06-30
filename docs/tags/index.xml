@@ -11,13 +11,41 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jun 2024 20:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2024 02:14:36 +0700</lastBuildDate>
     <atom:link href="https://fhrzn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>chatbot</title>
       <link>https://fhrzn.github.io/tags/chatbot/</link>
-      <pubDate>Sat, 01 Jun 2024 20:00:00 +0700</pubDate>
+      <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
       <guid>https://fhrzn.github.io/tags/chatbot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>conversational ai</title>
+      <link>https://fhrzn.github.io/tags/conversational-ai/</link>
+      <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
+      <guid>https://fhrzn.github.io/tags/conversational-ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>langchain</title>
+      <link>https://fhrzn.github.io/tags/langchain/</link>
+      <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
+      <guid>https://fhrzn.github.io/tags/langchain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>qa</title>
+      <link>https://fhrzn.github.io/tags/qa/</link>
+      <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
+      <guid>https://fhrzn.github.io/tags/qa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RAG</title>
+      <link>https://fhrzn.github.io/tags/rag/</link>
+      <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
+      <guid>https://fhrzn.github.io/tags/rag/</guid>
       <description></description>
     </item>
     <item>
@@ -25,27 +53,6 @@
       <link>https://fhrzn.github.io/tags/context-aware/</link>
       <pubDate>Sat, 01 Jun 2024 20:00:00 +0700</pubDate>
       <guid>https://fhrzn.github.io/tags/context-aware/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>conversational ai</title>
-      <link>https://fhrzn.github.io/tags/conversational-ai/</link>
-      <pubDate>Sat, 01 Jun 2024 20:00:00 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/conversational-ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>langchain</title>
-      <link>https://fhrzn.github.io/tags/langchain/</link>
-      <pubDate>Sat, 01 Jun 2024 20:00:00 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/langchain/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>rag</title>
-      <link>https://fhrzn.github.io/tags/rag/</link>
-      <pubDate>Sat, 01 Jun 2024 20:00:00 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/rag/</guid>
       <description></description>
     </item>
     <item>
