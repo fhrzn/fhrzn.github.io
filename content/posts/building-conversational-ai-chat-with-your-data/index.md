@@ -534,7 +534,7 @@ Great! At this point, we should able to play around with upload file functionali
 ![testing upload functionality](images/upload-file-test.gif)
 
 
-## Update Chatbot Logic
+### Update Chatbot Logic
 
 Cool, now just the main part left. Here we will adapt our previous code to perform RAG. Lets goo! 🔥
 
@@ -709,7 +709,7 @@ def predict_chat(message: str, history: list, model_name: str, user_id: str, col
     # yield response.content
 ```
 
-## The Moment of Truth!
+### Moment of Truth!
 
 Let's now test our chatbot!
 
