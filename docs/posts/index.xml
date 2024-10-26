@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Jun 2024 02:14:36 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 26 Oct 2024 19:56:54 +0700</lastBuildDate>
     <atom:link href="https://fhrzn.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enhance Your LLM’s Understanding: Document Parsing Tips You Need to Know</title>
+      <link>https://fhrzn.github.io/posts/llm-document-parsing-tips/</link>
+      <pubDate>Sat, 26 Oct 2024 19:56:54 +0700</pubDate>
+      <guid>https://fhrzn.github.io/posts/llm-document-parsing-tips/</guid>
+      <description>In retrieval-augmented generation (RAG), uploading documents like PDFs or spreadsheets to a vector database helps extend LLM knowledge. Simply reading the file contents can lose important structure, so parsing into a structured format like Markdown is essential. Most LLMs, particularly OpenAI&amp;#39;s models, perform best with this format.</description>
+    </item>
     <item>
       <title>Building Conversational AI with LangChain Part 2: Chat with Your Data</title>
       <link>https://fhrzn.github.io/posts/building-conversational-ai-chat-with-your-data/</link>
