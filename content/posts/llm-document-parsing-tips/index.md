@@ -3,7 +3,7 @@ title: 'Enhance Your LLM’s Understanding: Document Parsing Tips You Need to Kn
 date: 2024-10-26T19:56:54+07:00
 tags: []
 draft: false
-description: "In retrieval-augmented generation (RAG), uploading documents like PDFs or spreadsheets to a vector database helps extend LLM knowledge. Simply reading the file contents can lose important structure, so parsing into a structured format like Markdown is essential. Most LLMs, particularly OpenAI's models, perform best with this format."
+description: ""
 disableShare: true
 hideSummary: false
 ShowReadingTime: true
