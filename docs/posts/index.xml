@@ -18,7 +18,7 @@
       <link>https://fhrzn.github.io/posts/llm-document-parsing-tips/</link>
       <pubDate>Sat, 26 Oct 2024 19:56:54 +0700</pubDate>
       <guid>https://fhrzn.github.io/posts/llm-document-parsing-tips/</guid>
-      <description>In retrieval-augmented generation (RAG), uploading documents like PDFs or spreadsheets to a vector database helps extend LLM knowledge. Simply reading the file contents can lose important structure, so parsing into a structured format like Markdown is essential. Most LLMs, particularly OpenAI&amp;#39;s models, perform best with this format.</description>
+      <description>TLDR; In this article, we will show how to parse PDF and webpage into Markdown format – which can preserve document structure for better LLM understanding.</description>
     </item>
     <item>
       <title>Building Conversational AI with LangChain Part 2: Chat with Your Data</title>
