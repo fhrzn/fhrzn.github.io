@@ -21,30 +21,6 @@
       <description>How MMR Enhances Diversity and User Experience in Product Suggestions.</description>
     </item>
     <item>
-      <title>Choosing the Right Vector DB for Your AI Project</title>
-      <link>https://fhrzn.github.io/posts/choosing-the-right-vector-db-for-your-ai-project/</link>
-      <pubDate>Sun, 25 May 2025 00:06:14 +0700</pubDate>
-      <guid>https://fhrzn.github.io/posts/choosing-the-right-vector-db-for-your-ai-project/</guid>
-      <description>&lt;p&gt;Vector Database is a new thing that just popped out since the LLM era. Especially, when we read articles or updates on AI Engineering&lt;/p&gt;
-&lt;p&gt;recent AI Engineering trends such as RAG and Agentic AI&lt;/p&gt;
-&lt;p&gt;The vector term itself is&lt;/p&gt;
-&lt;p&gt;borrowed from the AI field which represents the data itself.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>On Building Voice Agent for Fashion Recommendation</title>
-      <link>https://fhrzn.github.io/posts/on-building-voice-agent-for-fashion-recommendation/</link>
-      <pubDate>Sun, 25 May 2025 00:06:14 +0700</pubDate>
-      <guid>https://fhrzn.github.io/posts/on-building-voice-agent-for-fashion-recommendation/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Migrating 600 Million Data using Airflow and PySpark</title>
-      <link>https://fhrzn.github.io/posts/migrating-600-million-data-using-airflow-and-pyspark/</link>
-      <pubDate>Sun, 05 Jan 2025 01:52:14 +0700</pubDate>
-      <guid>https://fhrzn.github.io/posts/migrating-600-million-data-using-airflow-and-pyspark/</guid>
-      <description>I was asked to migrate 600M+ data from our internal MySQL DB to BigQuery. Here is how I did it using incremental load strategy.</description>
-    </item>
-    <item>
       <title>Enhance Your LLM’s Understanding: Document Parsing Tips You Need to Know</title>
       <link>https://fhrzn.github.io/posts/llm-document-parsing-tips/</link>
       <pubDate>Sat, 26 Oct 2024 19:56:54 +0700</pubDate>
