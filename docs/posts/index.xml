@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on fahrizain</title>
     <link>https://fhrzn.github.io/posts/</link>
@@ -9,10 +9,41 @@
       <url>https://fhrzn.github.io/android-chrome-512x512.png</url>
       <link>https://fhrzn.github.io/android-chrome-512x512.png</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.5</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Oct 2024 19:56:54 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 25 May 2025 18:37:32 +0700</lastBuildDate>
     <atom:link href="https://fhrzn.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Secret Sauce Behind Better Product Recommendation: MMR Explained</title>
+      <link>https://fhrzn.github.io/posts/the-secret-sauce-behind-better-product-recommendation-mmr-explained/</link>
+      <pubDate>Sun, 25 May 2025 18:37:32 +0700</pubDate>
+      <guid>https://fhrzn.github.io/posts/the-secret-sauce-behind-better-product-recommendation-mmr-explained/</guid>
+      <description>How MMR Enhances Diversity and User Experience in Product Suggestions.</description>
+    </item>
+    <item>
+      <title>Choosing the Right Vector DB for Your AI Project</title>
+      <link>https://fhrzn.github.io/posts/choosing-the-right-vector-db-for-your-ai-project/</link>
+      <pubDate>Sun, 25 May 2025 00:06:14 +0700</pubDate>
+      <guid>https://fhrzn.github.io/posts/choosing-the-right-vector-db-for-your-ai-project/</guid>
+      <description>&lt;p&gt;Vector Database is a new thing that just popped out since the LLM era. Especially, when we read articles or updates on AI Engineering&lt;/p&gt;
+&lt;p&gt;recent AI Engineering trends such as RAG and Agentic AI&lt;/p&gt;
+&lt;p&gt;The vector term itself is&lt;/p&gt;
+&lt;p&gt;borrowed from the AI field which represents the data itself.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>On Building Voice Agent for Fashion Recommendation</title>
+      <link>https://fhrzn.github.io/posts/on-building-voice-agent-for-fashion-recommendation/</link>
+      <pubDate>Sun, 25 May 2025 00:06:14 +0700</pubDate>
+      <guid>https://fhrzn.github.io/posts/on-building-voice-agent-for-fashion-recommendation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Migrating 600 Million Data using Airflow and PySpark</title>
+      <link>https://fhrzn.github.io/posts/migrating-600-million-data-using-airflow-and-pyspark/</link>
+      <pubDate>Sun, 05 Jan 2025 01:52:14 +0700</pubDate>
+      <guid>https://fhrzn.github.io/posts/migrating-600-million-data-using-airflow-and-pyspark/</guid>
+      <description>I was asked to migrate 600M+ data from our internal MySQL DB to BigQuery. Here is how I did it using incremental load strategy.</description>
+    </item>
     <item>
       <title>Enhance Your LLM’s Understanding: Document Parsing Tips You Need to Know</title>
       <link>https://fhrzn.github.io/posts/llm-document-parsing-tips/</link>

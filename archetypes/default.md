@@ -4,7 +4,7 @@ date: {{ .Date }}
 tags: []
 draft: true
 description: ""
-disableShare: true
+disableShare: false
 hideSummary: false
 ShowReadingTime: true
 ShowWordCount: true

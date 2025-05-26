@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>context aware on fahrizain</title>
+    <title>Context Aware on fahrizain</title>
     <link>https://fhrzn.github.io/tags/context-aware/</link>
-    <description>Recent content in context aware on fahrizain</description>
+    <description>Recent content in Context Aware on fahrizain</description>
     <image>
       <title>fahrizain</title>
       <url>https://fhrzn.github.io/android-chrome-512x512.png</url>
       <link>https://fhrzn.github.io/android-chrome-512x512.png</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.5</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Jun 2024 20:00:00 +0700</lastBuildDate>
     <atom:link href="https://fhrzn.github.io/tags/context-aware/index.xml" rel="self" type="application/rss+xml" />

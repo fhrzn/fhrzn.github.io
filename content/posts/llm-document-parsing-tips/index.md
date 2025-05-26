@@ -4,7 +4,7 @@ date: 2024-10-26T19:56:54+07:00
 tags: []
 draft: false
 description: ""
-disableShare: true
+disableShare: false
 hideSummary: false
 ShowReadingTime: true
 ShowWordCount: true

@@ -17,6 +17,10 @@ OR
 ```bash
 hugo new --kind posts <subfolder>/<page-name.md>
 ```
+Example:
+```bash
+hugo new content posts/my-new-page/index.md
+```
 
 ## How to Run
 Run command:

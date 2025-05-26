@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://fhrzn.github.io/sitemap.xml
