@@ -179,6 +179,8 @@ Remember, you have 20 leaves available per year.
 
 Nice! Our retrieval system now has been succesfully identify user's follow-up question and contextually enrich them to retrieve relevant document from vectordb.
 
+> 📝 You can find the full code in my [GitHub repository](https://github.com/fhrzn/rags-archive/blob/main/rag-articles/notebook/query_expansion.ipynb)
+
 > ⚠️ Remember there is no single-solution-for-all, this technique is only one of many others. It may not robust on the other case. Though it is worked quite well for most of my cases so far.
 
 ## Conclusion
@@ -187,6 +189,13 @@ Effective Retrieval-Augmented Generation (RAG) systems depend on understanding c
 
 While this method is beneficial, it's essential to remember that this approach is not a one-size-fits-all solution and may require adaptation for different contexts.
 
+<br>
+
+*This is just the first in a series of posts on debugging and improving real-world RAG pipelines. For the next part, I’ll explore retrieval tuning strategies like Top-K selection, similarity thresholds, and reranking.*
+
+*Пока-пока! 👋*
+
+<br>
 
 ---
 
