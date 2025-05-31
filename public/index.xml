@@ -2,99 +2,101 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>fahrizain</title>
-    <link>http://localhost:1313/</link>
+    <link>https://fhrzn.github.io/</link>
     <description>Recent content on fahrizain</description>
     <image>
       <title>fahrizain</title>
-      <url>http://localhost:1313/android-chrome-512x512.png</url>
-      <link>http://localhost:1313/android-chrome-512x512.png</link>
+      <url>https://fhrzn.github.io/android-chrome-512x512.png</url>
+      <link>https://fhrzn.github.io/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- 0.147.5</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 May 2025 00:06:14 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 May 2025 20:25:21 +0700</lastBuildDate>
+    <atom:link href="https://fhrzn.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>On Building Voice Agent for Fashion Recommendation</title>
-      <link>http://localhost:1313/posts/on-building-voice-agent-for-fashion-recommendation/</link>
-      <pubDate>Sun, 25 May 2025 00:06:14 +0700</pubDate>
-      <guid>http://localhost:1313/posts/on-building-voice-agent-for-fashion-recommendation/</guid>
-      <description></description>
+      <title>Lesson Learned: Common Pitfalls in Building RAG – Part 1</title>
+      <link>https://fhrzn.github.io/posts/common-pitfalls-in-building-rag/</link>
+      <pubDate>Sat, 31 May 2025 20:25:21 +0700</pubDate>
+      <guid>https://fhrzn.github.io/posts/common-pitfalls-in-building-rag/</guid>
+      <description>&lt;p&gt;Building Retrieval-Augmented Generation (RAG) systems sounds straightforward in theory. But after working on several real-world RAG use cases—&lt;a href=&#34;https://www.youtube.com/watch?v=CFd2MTHoIlA&amp;amp;list=PLy86Ve1I7c3goBsOPRUAMUMoEUpSX4zWd&amp;amp;index=1&#34;&gt;FAQ chatbot builder&lt;/a&gt;, image-to-image search, &lt;a href=&#34;https://wearesocial.com/sg/blog/2025/04/inside-skechers-new-ai-powered-shopping-experience-in-singapore/&#34;&gt;product recommendation engines&lt;/a&gt; and voice agents—I learned that the reality is far messier.&lt;/p&gt;
+&lt;p&gt;Rather than covering everything at once, I’m breaking this down into a short series of posts—each one focusing on a specific issue I encountered and how I approached fixing it.&lt;/p&gt;
+&lt;p&gt;In this first part, we’ll look at one of the most frequent problems: &lt;em&gt;&lt;strong&gt;follow-up queries&lt;/strong&gt; that fail retrieval—and how &lt;strong&gt;query expansion&lt;/strong&gt; helped solve it&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Migrating 600 Million Data using Airflow and PySpark</title>
-      <link>http://localhost:1313/posts/migrating-600-million-data-using-airflow-and-pyspark/</link>
-      <pubDate>Sun, 05 Jan 2025 01:52:14 +0700</pubDate>
-      <guid>http://localhost:1313/posts/migrating-600-million-data-using-airflow-and-pyspark/</guid>
-      <description>I was asked to migrate 600M+ data from our internal MySQL DB to BigQuery. Here is how I did it using incremental load strategy.</description>
+      <title>The Secret Sauce Behind Better Product Recommendation: MMR Explained</title>
+      <link>https://fhrzn.github.io/posts/the-secret-sauce-behind-better-product-recommendation-mmr-explained/</link>
+      <pubDate>Sun, 25 May 2025 18:37:32 +0700</pubDate>
+      <guid>https://fhrzn.github.io/posts/the-secret-sauce-behind-better-product-recommendation-mmr-explained/</guid>
+      <description>How MMR Enhances Diversity and User Experience in Product Suggestions.</description>
     </item>
     <item>
       <title>Enhance Your LLM’s Understanding: Document Parsing Tips You Need to Know</title>
-      <link>http://localhost:1313/posts/llm-document-parsing-tips/</link>
+      <link>https://fhrzn.github.io/posts/llm-document-parsing-tips/</link>
       <pubDate>Sat, 26 Oct 2024 19:56:54 +0700</pubDate>
-      <guid>http://localhost:1313/posts/llm-document-parsing-tips/</guid>
+      <guid>https://fhrzn.github.io/posts/llm-document-parsing-tips/</guid>
       <description>TLDR; In this article, we will show how to parse PDF and webpage into Markdown format – which can preserve document structure for better LLM understanding.</description>
     </item>
     <item>
       <title>Building Conversational AI with LangChain Part 2: Chat with Your Data</title>
-      <link>http://localhost:1313/posts/building-conversational-ai-chat-with-your-data/</link>
+      <link>https://fhrzn.github.io/posts/building-conversational-ai-chat-with-your-data/</link>
       <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
-      <guid>http://localhost:1313/posts/building-conversational-ai-chat-with-your-data/</guid>
+      <guid>https://fhrzn.github.io/posts/building-conversational-ai-chat-with-your-data/</guid>
       <description>LLM is powerful, but it cannot answer questions it doesn&amp;rsquo;t know before. Thanks to RAG we can inject some knowledge to extend LLM capability. Now let&amp;rsquo;s build our first RAG!</description>
     </item>
     <item>
       <title>Building Conversational AI with LangChain: Techniques for Context Retention in Chatbots</title>
-      <link>http://localhost:1313/posts/building-conversational-ai-context-aware-chatbot/</link>
+      <link>https://fhrzn.github.io/posts/building-conversational-ai-context-aware-chatbot/</link>
       <pubDate>Sat, 01 Jun 2024 20:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/posts/building-conversational-ai-context-aware-chatbot/</guid>
+      <guid>https://fhrzn.github.io/posts/building-conversational-ai-context-aware-chatbot/</guid>
       <description>We moved from in-house training model to hosted models and ready-to-use APIs. With the existence of free LLM APIs, let&amp;rsquo;s explore how to create our own free chatbot!</description>
     </item>
     <item>
       <title>Pain-free Python Fastapi RabbitMQ Integration</title>
-      <link>http://localhost:1313/posts/pain-free-python-fastapi-rmq-integration/</link>
+      <link>https://fhrzn.github.io/posts/pain-free-python-fastapi-rmq-integration/</link>
       <pubDate>Sat, 10 Feb 2024 06:55:09 +0700</pubDate>
-      <guid>http://localhost:1313/posts/pain-free-python-fastapi-rmq-integration/</guid>
+      <guid>https://fhrzn.github.io/posts/pain-free-python-fastapi-rmq-integration/</guid>
       <description>Despite of the powerfulness of FastAPI, I found it&amp;#39;s not easy to work with threads and RabbitMQ. I was struggled for 3 days to find the solution. And here I&amp;#39;ll share my findings on creating both RMQ based producer and consumer in single FastAPI app.</description>
     </item>
     <item>
       <title>Restore your Noisy Image Using Autoencoders</title>
-      <link>http://localhost:1313/posts/restore-your-noisy-image-using-autoencoders/</link>
+      <link>https://fhrzn.github.io/posts/restore-your-noisy-image-using-autoencoders/</link>
       <pubDate>Sun, 07 Jan 2024 19:19:52 +0700</pubDate>
-      <guid>http://localhost:1313/posts/restore-your-noisy-image-using-autoencoders/</guid>
+      <guid>https://fhrzn.github.io/posts/restore-your-noisy-image-using-autoencoders/</guid>
       <description>Autoencoder network designed to learn data representation using its bottleneck network architecture. Now, we will discover autoencoder use case for image restoration.</description>
     </item>
     <item>
       <title>Autoencoders: Your First Step into Generative AI</title>
-      <link>http://localhost:1313/posts/autoencoders-your-first-step-into-generative-ai/</link>
+      <link>https://fhrzn.github.io/posts/autoencoders-your-first-step-into-generative-ai/</link>
       <pubDate>Tue, 02 Jan 2024 21:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/posts/autoencoders-your-first-step-into-generative-ai/</guid>
+      <guid>https://fhrzn.github.io/posts/autoencoders-your-first-step-into-generative-ai/</guid>
       <description>Generally, there are two popular basic variant of Generative AI: Autoencoders network and Generative Adversarial Network (GAN). In this series, we will discover the former one and leave the latter in another one.</description>
     </item>
     <item>
       <title>Exploring Vision Transformers (ViT) with 🤗 Huggingface</title>
-      <link>http://localhost:1313/posts/exploring-visual-transformers-vit-with-huggingface/</link>
+      <link>https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/</link>
       <pubDate>Fri, 14 Oct 2022 23:53:18 +0700</pubDate>
-      <guid>http://localhost:1313/posts/exploring-visual-transformers-vit-with-huggingface/</guid>
+      <guid>https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/</guid>
       <description>An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Dosovitskiy et al., 2021)</description>
     </item>
     <item>
       <title>Quick Export your Jupyter Notebook to PDF</title>
-      <link>http://localhost:1313/posts/quick-export-your-jupyter-notebook-to-pdf/</link>
+      <link>https://fhrzn.github.io/posts/quick-export-your-jupyter-notebook-to-pdf/</link>
       <pubDate>Sun, 07 Aug 2022 23:53:18 +0700</pubDate>
-      <guid>http://localhost:1313/posts/quick-export-your-jupyter-notebook-to-pdf/</guid>
+      <guid>https://fhrzn.github.io/posts/quick-export-your-jupyter-notebook-to-pdf/</guid>
       <description>What if I tell you there are some way to simply export your beloved notebook to PDFs?</description>
     </item>
     <item>
       <title>Bag of Words vs TF-IDF — Penjelasan dan Perbedaannya</title>
-      <link>http://localhost:1313/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</link>
+      <link>https://fhrzn.github.io/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</link>
       <pubDate>Mon, 01 Nov 2021 23:53:18 +0700</pubDate>
-      <guid>http://localhost:1313/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</guid>
+      <guid>https://fhrzn.github.io/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</guid>
       <description>Bag of Words dan TF-IDF adalah 2 metode transformasi teks yang cukup populer. Mari kita bahas cara kerja serta perbedaannya!</description>
     </item>
     <item>
       <title>Profile</title>
-      <link>http://localhost:1313/profile/</link>
+      <link>https://fhrzn.github.io/profile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/profile/</guid>
+      <guid>https://fhrzn.github.io/profile/</guid>
       <description></description>
     </item>
   </channel>

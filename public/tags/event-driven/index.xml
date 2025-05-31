@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Event-Driven on fahrizain</title>
-    <link>http://localhost:1313/tags/event-driven/</link>
+    <link>https://fhrzn.github.io/tags/event-driven/</link>
     <description>Recent content in Event-Driven on fahrizain</description>
     <image>
       <title>fahrizain</title>
-      <url>http://localhost:1313/android-chrome-512x512.png</url>
-      <link>http://localhost:1313/android-chrome-512x512.png</link>
+      <url>https://fhrzn.github.io/android-chrome-512x512.png</url>
+      <link>https://fhrzn.github.io/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- 0.147.5</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Feb 2024 06:55:09 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/event-driven/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://fhrzn.github.io/tags/event-driven/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pain-free Python Fastapi RabbitMQ Integration</title>
-      <link>http://localhost:1313/posts/pain-free-python-fastapi-rmq-integration/</link>
+      <link>https://fhrzn.github.io/posts/pain-free-python-fastapi-rmq-integration/</link>
       <pubDate>Sat, 10 Feb 2024 06:55:09 +0700</pubDate>
-      <guid>http://localhost:1313/posts/pain-free-python-fastapi-rmq-integration/</guid>
+      <guid>https://fhrzn.github.io/posts/pain-free-python-fastapi-rmq-integration/</guid>
       <description>Despite of the powerfulness of FastAPI, I found it&amp;#39;s not easy to work with threads and RabbitMQ. I was struggled for 3 days to find the solution. And here I&amp;#39;ll share my findings on creating both RMQ based producer and consumer in single FastAPI app.</description>
     </item>
   </channel>
