@@ -11,7 +11,7 @@ buildExpired: true
 enableEmoji: true
 mainsections: ["posts"]
 
-publishDir: "public"
+publishDir: "docs"
 
 minify:
   disableXML: true
