@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Deeplearning on fahrizain</title>
-    <link>http://localhost:1313/tags/deeplearning/</link>
+    <link>https://fhrzn.github.io/tags/deeplearning/</link>
     <description>Recent content in Deeplearning on fahrizain</description>
     <image>
       <title>fahrizain</title>
-      <url>http://localhost:1313/android-chrome-512x512.png</url>
-      <link>http://localhost:1313/android-chrome-512x512.png</link>
+      <url>https://fhrzn.github.io/android-chrome-512x512.png</url>
+      <link>https://fhrzn.github.io/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- 0.147.5</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 07 Jan 2024 19:19:52 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/deeplearning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://fhrzn.github.io/tags/deeplearning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Restore your Noisy Image Using Autoencoders</title>
-      <link>http://localhost:1313/posts/restore-your-noisy-image-using-autoencoders/</link>
+      <link>https://fhrzn.github.io/posts/restore-your-noisy-image-using-autoencoders/</link>
       <pubDate>Sun, 07 Jan 2024 19:19:52 +0700</pubDate>
-      <guid>http://localhost:1313/posts/restore-your-noisy-image-using-autoencoders/</guid>
+      <guid>https://fhrzn.github.io/posts/restore-your-noisy-image-using-autoencoders/</guid>
       <description>Autoencoder network designed to learn data representation using its bottleneck network architecture. Now, we will discover autoencoder use case for image restoration.</description>
     </item>
     <item>
       <title>Autoencoders: Your First Step into Generative AI</title>
-      <link>http://localhost:1313/posts/autoencoders-your-first-step-into-generative-ai/</link>
+      <link>https://fhrzn.github.io/posts/autoencoders-your-first-step-into-generative-ai/</link>
       <pubDate>Tue, 02 Jan 2024 21:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/posts/autoencoders-your-first-step-into-generative-ai/</guid>
+      <guid>https://fhrzn.github.io/posts/autoencoders-your-first-step-into-generative-ai/</guid>
       <description>Generally, there are two popular basic variant of Generative AI: Autoencoders network and Generative Adversarial Network (GAN). In this series, we will discover the former one and leave the latter in another one.</description>
     </item>
     <item>
       <title>Exploring Vision Transformers (ViT) with 🤗 Huggingface</title>
-      <link>http://localhost:1313/posts/exploring-visual-transformers-vit-with-huggingface/</link>
+      <link>https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/</link>
       <pubDate>Fri, 14 Oct 2022 23:53:18 +0700</pubDate>
-      <guid>http://localhost:1313/posts/exploring-visual-transformers-vit-with-huggingface/</guid>
+      <guid>https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/</guid>
       <description>An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (Dosovitskiy et al., 2021)</description>
     </item>
   </channel>
