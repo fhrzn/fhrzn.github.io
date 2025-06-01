@@ -2,162 +2,162 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on fahrizain</title>
-    <link>https://fhrzn.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on fahrizain</description>
     <image>
       <title>fahrizain</title>
-      <url>https://fhrzn.github.io/android-chrome-512x512.png</url>
-      <link>https://fhrzn.github.io/android-chrome-512x512.png</link>
+      <url>http://localhost:1313/android-chrome-512x512.png</url>
+      <link>http://localhost:1313/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- 0.147.5</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 31 May 2025 20:25:21 +0700</lastBuildDate>
-    <atom:link href="https://fhrzn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RAG</title>
-      <link>https://fhrzn.github.io/tags/rag/</link>
+      <link>http://localhost:1313/tags/rag/</link>
       <pubDate>Sat, 31 May 2025 20:25:21 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/rag/</guid>
+      <guid>http://localhost:1313/tags/rag/</guid>
       <description></description>
     </item>
     <item>
       <title>Product Recommendation</title>
-      <link>https://fhrzn.github.io/tags/product-recommendation/</link>
+      <link>http://localhost:1313/tags/product-recommendation/</link>
       <pubDate>Sun, 25 May 2025 18:37:32 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/product-recommendation/</guid>
+      <guid>http://localhost:1313/tags/product-recommendation/</guid>
       <description></description>
     </item>
     <item>
       <title>Recsys</title>
-      <link>https://fhrzn.github.io/tags/recsys/</link>
+      <link>http://localhost:1313/tags/recsys/</link>
       <pubDate>Sun, 25 May 2025 18:37:32 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/recsys/</guid>
+      <guid>http://localhost:1313/tags/recsys/</guid>
       <description></description>
     </item>
     <item>
       <title>Reranking</title>
-      <link>https://fhrzn.github.io/tags/reranking/</link>
+      <link>http://localhost:1313/tags/reranking/</link>
       <pubDate>Sun, 25 May 2025 18:37:32 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/reranking/</guid>
+      <guid>http://localhost:1313/tags/reranking/</guid>
       <description></description>
     </item>
     <item>
       <title>Chatbot</title>
-      <link>https://fhrzn.github.io/tags/chatbot/</link>
+      <link>http://localhost:1313/tags/chatbot/</link>
       <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/chatbot/</guid>
+      <guid>http://localhost:1313/tags/chatbot/</guid>
       <description></description>
     </item>
     <item>
       <title>Conversational Ai</title>
-      <link>https://fhrzn.github.io/tags/conversational-ai/</link>
+      <link>http://localhost:1313/tags/conversational-ai/</link>
       <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/conversational-ai/</guid>
+      <guid>http://localhost:1313/tags/conversational-ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Langchain</title>
-      <link>https://fhrzn.github.io/tags/langchain/</link>
+      <link>http://localhost:1313/tags/langchain/</link>
       <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/langchain/</guid>
+      <guid>http://localhost:1313/tags/langchain/</guid>
       <description></description>
     </item>
     <item>
       <title>Qa</title>
-      <link>https://fhrzn.github.io/tags/qa/</link>
+      <link>http://localhost:1313/tags/qa/</link>
       <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/qa/</guid>
+      <guid>http://localhost:1313/tags/qa/</guid>
       <description></description>
     </item>
     <item>
       <title>Context Aware</title>
-      <link>https://fhrzn.github.io/tags/context-aware/</link>
+      <link>http://localhost:1313/tags/context-aware/</link>
       <pubDate>Sat, 01 Jun 2024 20:00:00 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/context-aware/</guid>
+      <guid>http://localhost:1313/tags/context-aware/</guid>
       <description></description>
     </item>
     <item>
       <title>Event-Driven</title>
-      <link>https://fhrzn.github.io/tags/event-driven/</link>
+      <link>http://localhost:1313/tags/event-driven/</link>
       <pubDate>Sat, 10 Feb 2024 06:55:09 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/event-driven/</guid>
+      <guid>http://localhost:1313/tags/event-driven/</guid>
       <description></description>
     </item>
     <item>
       <title>Messagebroker</title>
-      <link>https://fhrzn.github.io/tags/messagebroker/</link>
+      <link>http://localhost:1313/tags/messagebroker/</link>
       <pubDate>Sat, 10 Feb 2024 06:55:09 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/messagebroker/</guid>
+      <guid>http://localhost:1313/tags/messagebroker/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>https://fhrzn.github.io/tags/python/</link>
+      <link>http://localhost:1313/tags/python/</link>
       <pubDate>Sat, 10 Feb 2024 06:55:09 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/python/</guid>
+      <guid>http://localhost:1313/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Autoencoder</title>
-      <link>https://fhrzn.github.io/tags/autoencoder/</link>
+      <link>http://localhost:1313/tags/autoencoder/</link>
       <pubDate>Sun, 07 Jan 2024 19:19:52 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/autoencoder/</guid>
+      <guid>http://localhost:1313/tags/autoencoder/</guid>
       <description></description>
     </item>
     <item>
       <title>Deeplearning</title>
-      <link>https://fhrzn.github.io/tags/deeplearning/</link>
+      <link>http://localhost:1313/tags/deeplearning/</link>
       <pubDate>Sun, 07 Jan 2024 19:19:52 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/deeplearning/</guid>
+      <guid>http://localhost:1313/tags/deeplearning/</guid>
       <description></description>
     </item>
     <item>
       <title>Representation</title>
-      <link>https://fhrzn.github.io/tags/representation/</link>
+      <link>http://localhost:1313/tags/representation/</link>
       <pubDate>Tue, 02 Jan 2024 21:00:00 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/representation/</guid>
+      <guid>http://localhost:1313/tags/representation/</guid>
       <description></description>
     </item>
     <item>
       <title>Computervision</title>
-      <link>https://fhrzn.github.io/tags/computervision/</link>
+      <link>http://localhost:1313/tags/computervision/</link>
       <pubDate>Fri, 14 Oct 2022 23:53:18 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/computervision/</guid>
+      <guid>http://localhost:1313/tags/computervision/</guid>
       <description></description>
     </item>
     <item>
       <title>Export</title>
-      <link>https://fhrzn.github.io/tags/export/</link>
+      <link>http://localhost:1313/tags/export/</link>
       <pubDate>Sun, 07 Aug 2022 23:53:18 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/export/</guid>
+      <guid>http://localhost:1313/tags/export/</guid>
       <description></description>
     </item>
     <item>
       <title>Jupyter Notebook</title>
-      <link>https://fhrzn.github.io/tags/jupyter-notebook/</link>
+      <link>http://localhost:1313/tags/jupyter-notebook/</link>
       <pubDate>Sun, 07 Aug 2022 23:53:18 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/jupyter-notebook/</guid>
+      <guid>http://localhost:1313/tags/jupyter-notebook/</guid>
       <description></description>
     </item>
     <item>
       <title>Preprocessing</title>
-      <link>https://fhrzn.github.io/tags/preprocessing/</link>
+      <link>http://localhost:1313/tags/preprocessing/</link>
       <pubDate>Mon, 01 Nov 2021 23:53:18 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/preprocessing/</guid>
+      <guid>http://localhost:1313/tags/preprocessing/</guid>
       <description></description>
     </item>
     <item>
       <title>Textprocessing</title>
-      <link>https://fhrzn.github.io/tags/textprocessing/</link>
+      <link>http://localhost:1313/tags/textprocessing/</link>
       <pubDate>Mon, 01 Nov 2021 23:53:18 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/textprocessing/</guid>
+      <guid>http://localhost:1313/tags/textprocessing/</guid>
       <description></description>
     </item>
     <item>
       <title>Tfidf</title>
-      <link>https://fhrzn.github.io/tags/tfidf/</link>
+      <link>http://localhost:1313/tags/tfidf/</link>
       <pubDate>Mon, 01 Nov 2021 23:53:18 +0700</pubDate>
-      <guid>https://fhrzn.github.io/tags/tfidf/</guid>
+      <guid>http://localhost:1313/tags/tfidf/</guid>
       <description></description>
     </item>
   </channel>

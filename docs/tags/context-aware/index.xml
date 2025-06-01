@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Context Aware on fahrizain</title>
-    <link>https://fhrzn.github.io/tags/context-aware/</link>
+    <link>http://localhost:1313/tags/context-aware/</link>
     <description>Recent content in Context Aware on fahrizain</description>
     <image>
       <title>fahrizain</title>
-      <url>https://fhrzn.github.io/android-chrome-512x512.png</url>
-      <link>https://fhrzn.github.io/android-chrome-512x512.png</link>
+      <url>http://localhost:1313/android-chrome-512x512.png</url>
+      <link>http://localhost:1313/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- 0.147.5</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Jun 2024 20:00:00 +0700</lastBuildDate>
-    <atom:link href="https://fhrzn.github.io/tags/context-aware/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/context-aware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building Conversational AI with LangChain: Techniques for Context Retention in Chatbots</title>
-      <link>https://fhrzn.github.io/posts/building-conversational-ai-context-aware-chatbot/</link>
+      <link>http://localhost:1313/posts/building-conversational-ai-context-aware-chatbot/</link>
       <pubDate>Sat, 01 Jun 2024 20:00:00 +0700</pubDate>
-      <guid>https://fhrzn.github.io/posts/building-conversational-ai-context-aware-chatbot/</guid>
+      <guid>http://localhost:1313/posts/building-conversational-ai-context-aware-chatbot/</guid>
       <description>We moved from in-house training model to hosted models and ready-to-use APIs. With the existence of free LLM APIs, let&amp;rsquo;s explore how to create our own free chatbot!</description>
     </item>
   </channel>

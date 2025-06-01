@@ -2,115 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://fhrzn.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-05-31T20:25:21+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/common-pitfalls-in-building-rag/</loc>
+    <loc>http://localhost:1313/posts/common-pitfalls-in-building-rag/</loc>
     <lastmod>2025-05-31T20:25:21+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-05-31T20:25:21+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/rag/</loc>
+    <loc>http://localhost:1313/tags/rag/</loc>
     <lastmod>2025-05-31T20:25:21+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-05-31T20:25:21+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/product-recommendation/</loc>
+    <loc>http://localhost:1313/tags/product-recommendation/</loc>
     <lastmod>2025-05-25T18:37:32+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/recsys/</loc>
+    <loc>http://localhost:1313/tags/recsys/</loc>
     <lastmod>2025-05-25T18:37:32+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/reranking/</loc>
+    <loc>http://localhost:1313/tags/reranking/</loc>
     <lastmod>2025-05-25T18:37:32+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/the-secret-sauce-behind-better-product-recommendation-mmr-explained/</loc>
+    <loc>http://localhost:1313/posts/the-secret-sauce-behind-better-product-recommendation-mmr-explained/</loc>
     <lastmod>2025-05-25T18:37:32+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/llm-document-parsing-tips/</loc>
+    <loc>http://localhost:1313/posts/llm-document-parsing-tips/</loc>
     <lastmod>2024-10-26T19:56:54+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/building-conversational-ai-chat-with-your-data/</loc>
+    <loc>http://localhost:1313/posts/building-conversational-ai-chat-with-your-data/</loc>
     <lastmod>2024-06-30T02:14:36+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/chatbot/</loc>
+    <loc>http://localhost:1313/tags/chatbot/</loc>
     <lastmod>2024-06-30T02:14:36+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/conversational-ai/</loc>
+    <loc>http://localhost:1313/tags/conversational-ai/</loc>
     <lastmod>2024-06-30T02:14:36+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/langchain/</loc>
+    <loc>http://localhost:1313/tags/langchain/</loc>
     <lastmod>2024-06-30T02:14:36+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/qa/</loc>
+    <loc>http://localhost:1313/tags/qa/</loc>
     <lastmod>2024-06-30T02:14:36+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/building-conversational-ai-context-aware-chatbot/</loc>
+    <loc>http://localhost:1313/posts/building-conversational-ai-context-aware-chatbot/</loc>
     <lastmod>2024-06-01T20:00:00+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/context-aware/</loc>
+    <loc>http://localhost:1313/tags/context-aware/</loc>
     <lastmod>2024-06-01T20:00:00+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/event-driven/</loc>
+    <loc>http://localhost:1313/tags/event-driven/</loc>
     <lastmod>2024-02-10T06:55:09+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/messagebroker/</loc>
+    <loc>http://localhost:1313/tags/messagebroker/</loc>
     <lastmod>2024-02-10T06:55:09+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/pain-free-python-fastapi-rmq-integration/</loc>
+    <loc>http://localhost:1313/posts/pain-free-python-fastapi-rmq-integration/</loc>
     <lastmod>2024-02-10T06:55:09+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/python/</loc>
+    <loc>http://localhost:1313/tags/python/</loc>
     <lastmod>2024-02-10T06:55:09+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/autoencoder/</loc>
+    <loc>http://localhost:1313/tags/autoencoder/</loc>
     <lastmod>2024-01-07T19:19:52+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/deeplearning/</loc>
+    <loc>http://localhost:1313/tags/deeplearning/</loc>
     <lastmod>2024-01-07T19:19:52+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/restore-your-noisy-image-using-autoencoders/</loc>
+    <loc>http://localhost:1313/posts/restore-your-noisy-image-using-autoencoders/</loc>
     <lastmod>2024-01-07T19:19:52+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/autoencoders-your-first-step-into-generative-ai/</loc>
+    <loc>http://localhost:1313/posts/autoencoders-your-first-step-into-generative-ai/</loc>
     <lastmod>2024-01-02T21:00:00+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/representation/</loc>
+    <loc>http://localhost:1313/tags/representation/</loc>
     <lastmod>2024-01-02T21:00:00+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/computervision/</loc>
+    <loc>http://localhost:1313/tags/computervision/</loc>
     <lastmod>2022-10-14T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/exploring-visual-transformers-vit-with-huggingface/</loc>
+    <loc>http://localhost:1313/posts/exploring-visual-transformers-vit-with-huggingface/</loc>
     <lastmod>2022-10-14T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/export/</loc>
+    <loc>http://localhost:1313/tags/export/</loc>
     <lastmod>2022-08-07T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/jupyter-notebook/</loc>
+    <loc>http://localhost:1313/tags/jupyter-notebook/</loc>
     <lastmod>2022-08-07T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/quick-export-your-jupyter-notebook-to-pdf/</loc>
+    <loc>http://localhost:1313/posts/quick-export-your-jupyter-notebook-to-pdf/</loc>
     <lastmod>2022-08-07T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</loc>
+    <loc>http://localhost:1313/posts/bag-of-words-vs-tf-idf-penjelasan-dan-perbedaannya/</loc>
     <lastmod>2021-11-01T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/preprocessing/</loc>
+    <loc>http://localhost:1313/tags/preprocessing/</loc>
     <lastmod>2021-11-01T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/textprocessing/</loc>
+    <loc>http://localhost:1313/tags/textprocessing/</loc>
     <lastmod>2021-11-01T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/tags/tfidf/</loc>
+    <loc>http://localhost:1313/tags/tfidf/</loc>
     <lastmod>2021-11-01T23:53:18+07:00</lastmod>
   </url><url>
-    <loc>https://fhrzn.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://fhrzn.github.io/profile/</loc>
+    <loc>http://localhost:1313/profile/</loc>
   </url><url>
-    <loc>https://fhrzn.github.io/profile/</loc>
+    <loc>http://localhost:1313/profile/</loc>
   </url>
 </urlset>

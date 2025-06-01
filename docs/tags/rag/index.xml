@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>RAG on fahrizain</title>
-    <link>https://fhrzn.github.io/tags/rag/</link>
+    <link>http://localhost:1313/tags/rag/</link>
     <description>Recent content in RAG on fahrizain</description>
     <image>
       <title>fahrizain</title>
-      <url>https://fhrzn.github.io/android-chrome-512x512.png</url>
-      <link>https://fhrzn.github.io/android-chrome-512x512.png</link>
+      <url>http://localhost:1313/android-chrome-512x512.png</url>
+      <link>http://localhost:1313/android-chrome-512x512.png</link>
     </image>
     <generator>Hugo -- 0.147.5</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 31 May 2025 20:25:21 +0700</lastBuildDate>
-    <atom:link href="https://fhrzn.github.io/tags/rag/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/rag/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lesson Learned: Common Pitfalls in Building RAG – Part 1</title>
-      <link>https://fhrzn.github.io/posts/common-pitfalls-in-building-rag/</link>
+      <link>http://localhost:1313/posts/common-pitfalls-in-building-rag/</link>
       <pubDate>Sat, 31 May 2025 20:25:21 +0700</pubDate>
-      <guid>https://fhrzn.github.io/posts/common-pitfalls-in-building-rag/</guid>
+      <guid>http://localhost:1313/posts/common-pitfalls-in-building-rag/</guid>
       <description>&lt;p&gt;Building Retrieval-Augmented Generation (RAG) systems sounds straightforward in theory. But after working on several real-world RAG use cases—&lt;a href=&#34;https://www.youtube.com/watch?v=CFd2MTHoIlA&amp;amp;list=PLy86Ve1I7c3goBsOPRUAMUMoEUpSX4zWd&amp;amp;index=1&#34;&gt;FAQ chatbot builder&lt;/a&gt;, image-to-image search, &lt;a href=&#34;https://wearesocial.com/sg/blog/2025/04/inside-skechers-new-ai-powered-shopping-experience-in-singapore/&#34;&gt;product recommendation engines&lt;/a&gt; and voice agents—I learned that the reality is far messier.&lt;/p&gt;
 &lt;p&gt;Rather than covering everything at once, I’m breaking this down into a short series of posts—each one focusing on a specific issue I encountered and how I approached fixing it.&lt;/p&gt;
 &lt;p&gt;In this first part, we’ll look at one of the most frequent problems: &lt;em&gt;&lt;strong&gt;follow-up queries&lt;/strong&gt; that fail retrieval—and how &lt;strong&gt;query expansion&lt;/strong&gt; helped solve it&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Secret Sauce Behind Better Product Recommendation: MMR Explained</title>
-      <link>https://fhrzn.github.io/posts/the-secret-sauce-behind-better-product-recommendation-mmr-explained/</link>
+      <link>http://localhost:1313/posts/the-secret-sauce-behind-better-product-recommendation-mmr-explained/</link>
       <pubDate>Sun, 25 May 2025 18:37:32 +0700</pubDate>
-      <guid>https://fhrzn.github.io/posts/the-secret-sauce-behind-better-product-recommendation-mmr-explained/</guid>
+      <guid>http://localhost:1313/posts/the-secret-sauce-behind-better-product-recommendation-mmr-explained/</guid>
       <description>How MMR Enhances Diversity and User Experience in Product Suggestions.</description>
     </item>
     <item>
       <title>Building Conversational AI with LangChain Part 2: Chat with Your Data</title>
-      <link>https://fhrzn.github.io/posts/building-conversational-ai-chat-with-your-data/</link>
+      <link>http://localhost:1313/posts/building-conversational-ai-chat-with-your-data/</link>
       <pubDate>Sun, 30 Jun 2024 02:14:36 +0700</pubDate>
-      <guid>https://fhrzn.github.io/posts/building-conversational-ai-chat-with-your-data/</guid>
+      <guid>http://localhost:1313/posts/building-conversational-ai-chat-with-your-data/</guid>
       <description>LLM is powerful, but it cannot answer questions it doesn&amp;rsquo;t know before. Thanks to RAG we can inject some knowledge to extend LLM capability. Now let&amp;rsquo;s build our first RAG!</description>
     </item>
     <item>
       <title>Building Conversational AI with LangChain: Techniques for Context Retention in Chatbots</title>
-      <link>https://fhrzn.github.io/posts/building-conversational-ai-context-aware-chatbot/</link>
+      <link>http://localhost:1313/posts/building-conversational-ai-context-aware-chatbot/</link>
       <pubDate>Sat, 01 Jun 2024 20:00:00 +0700</pubDate>
-      <guid>https://fhrzn.github.io/posts/building-conversational-ai-context-aware-chatbot/</guid>
+      <guid>http://localhost:1313/posts/building-conversational-ai-context-aware-chatbot/</guid>
       <description>We moved from in-house training model to hosted models and ready-to-use APIs. With the existence of free LLM APIs, let&amp;rsquo;s explore how to create our own free chatbot!</description>
     </item>
   </channel>
